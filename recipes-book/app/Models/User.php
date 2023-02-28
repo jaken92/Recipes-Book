@@ -48,3 +48,5 @@ class User extends Authenticatable
         return $this->hasMany(Recipes::class);
     }
 }
+// Current created users:
+// App\Models\User::create(['name' => 'Rune', 'email' => 'rune@yrgo.se', 'password' => Hash::make('123')]);
