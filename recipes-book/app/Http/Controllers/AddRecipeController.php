@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-class AddRecipe extends Controller
+class AddRecipeController extends Controller
 {
     /**
      * Handle the incoming request.

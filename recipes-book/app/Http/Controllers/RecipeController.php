@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-class Dashboard extends Controller
+class RecipeController extends Controller
 {
     /**
      * Handle the incoming request.
