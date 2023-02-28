@@ -13,8 +13,11 @@ return new class extends Migration
     {
         Schema::create('recipes', function (Blueprint $table) {
             $table->id();
+            $table->string('title');
             $table->unsignedInteger('user_id');
-            $table->$table->timestamps();
+            $table->unsignedInteger('category_id');
+            $table->string('instructions');
+            $table->timestamps();
         });
     }
 
