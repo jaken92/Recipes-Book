@@ -11,4 +11,10 @@
     </div>
     <button type="submit">Login</button>
     <input type="hidden" name="_token" value="{{ csrf_token() }}" />
+
+</form>
+
+<form action="/guest" method="post">
+    <button>Continue as guest</button>
+    <input type="hidden" name="_token" value="{{ csrf_token() }}" />
 </form>

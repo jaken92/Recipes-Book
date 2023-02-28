@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Redirect;
 
 class RecipeController extends Controller
 {
@@ -11,6 +12,8 @@ class RecipeController extends Controller
      */
     public function __invoke(Request $request)
     {
-        //
+        // return redirect("recipe");
+        // return redirect()->intended("recipe");
+        return view('recipe');
     }
 }
