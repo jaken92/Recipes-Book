@@ -13,8 +13,6 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('index');
-});
+Route::view('/', 'index')->name('login')->middleware("guest");
 
 Route::get('dashboard', DashboardController::class)->middleware('auth');
