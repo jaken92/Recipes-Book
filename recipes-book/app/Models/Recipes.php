@@ -13,8 +13,6 @@ class Recipes extends Model
         'user_id',
         'category_id',
         'instructions',
-
-
     ];
 
     public function recipeIngredients()

@@ -11,7 +11,6 @@ class Categories extends Model
 
     protected $fillable = [
         'name'
-
     ];
 
     public function recipes()

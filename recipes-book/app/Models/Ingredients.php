@@ -11,7 +11,6 @@ class Ingredients extends Model
 
     protected $fillable = [
         'name'
-
     ];
 
     public function ingredients()
