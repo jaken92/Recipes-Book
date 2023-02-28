@@ -6,6 +6,7 @@ use App\Http\Controllers\LoginController;
 use App\Http\Controllers\GuestController;
 use App\Http\Controllers\RecipeController;
 use App\Http\Controllers\AddRecipeController;
+use App\Http\Controllers\PreviousPageController;
 
 /*
 |--------------------------------------------------------------------------
@@ -24,9 +25,10 @@ Route::get('dashboard', DashboardController::class)->middleware('auth');
 
 Route::post('login', LoginController::class);
 
-
 Route::post('guest', GuestController::class);
 
 Route::post('recipe', RecipeController::class);
 
 Route::post('addRecipe', AddRecipeController::class)->middleware('auth');
+
+// Route::post('previousPage', PreviousPageController::class);
