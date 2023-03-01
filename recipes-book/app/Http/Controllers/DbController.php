@@ -13,50 +13,50 @@ class DbController extends Controller
     public function __invoke(Request $request)
     {
         //
-        echo "hello";
-        /* DB::table('ingredients')
-            ->insert([
-                'name' => 'lök',
-                "created_at" =>  date('Y-m-d H:i:s', strtotime("+1 hours")),
-                "updated_at" => date('Y-m-d H:i:s', strtotime("+1 hours")),
+        // echo "hello";
+        // DB::table('ingredients')
+        //     ->insert([
+        //         'name' => 'lök',
+        //         "created_at" =>  date('Y-m-d H:i:s', strtotime("+1 hours")),
+        //         "updated_at" => date('Y-m-d H:i:s', strtotime("+1 hours")),
 
-            ]);
-        DB::table('ingredients')
-            ->insert([
-                'name' => 'potatis',
-                "created_at" =>  date('Y-m-d H:i:s', strtotime("+1 hours")),
-                "updated_at" => date('Y-m-d H:i:s', strtotime("+1 hours")),
-            ]);
-        DB::table('ingredients')
-            ->insert([
-                'name' => 'sill',
-                "created_at" =>  date('Y-m-d H:i:s', strtotime("+1 hours")),
-                "updated_at" => date('Y-m-d H:i:s', strtotime("+1 hours")),
-            ]);
-        DB::table('ingredients')
-            ->insert([
-                'name' => 'tomat',
-                "created_at" =>  date('Y-m-d H:i:s', strtotime("+1 hours")),
-                "updated_at" => date('Y-m-d H:i:s', strtotime("+1 hours")),
-            ]);
-        DB::table('ingredients')
-            ->insert([
-                'name' => 'gräddfil',
-                "created_at" =>  date('Y-m-d H:i:s', strtotime("+1 hours")),
-                "updated_at" => date('Y-m-d H:i:s', strtotime("+1 hours")),
-            ]);
-        DB::table('ingredients')
-            ->insert([
-                'name' => 'gräslök',
-                "created_at" =>  date('Y-m-d H:i:s', strtotime("+1 hours")),
-                "updated_at" => date('Y-m-d H:i:s', strtotime("+1 hours")),
-            ]);
-        DB::table('ingredients')
-            ->insert([
-                'name' => 'ägg',
-                "created_at" =>  date('Y-m-d H:i:s', strtotime("+1 hours")),
-                "updated_at" => date('Y-m-d H:i:s', strtotime("+1 hours")),
-            ]); */
+        //     ]);
+        // DB::table('ingredients')
+        //     ->insert([
+        //         'name' => 'potatis',
+        //         "created_at" =>  date('Y-m-d H:i:s', strtotime("+1 hours")),
+        //         "updated_at" => date('Y-m-d H:i:s', strtotime("+1 hours")),
+        //     ]);
+        // DB::table('ingredients')
+        //     ->insert([
+        //         'name' => 'sill',
+        //         "created_at" =>  date('Y-m-d H:i:s', strtotime("+1 hours")),
+        //         "updated_at" => date('Y-m-d H:i:s', strtotime("+1 hours")),
+        //     ]);
+        // DB::table('ingredients')
+        //     ->insert([
+        //         'name' => 'tomat',
+        //         "created_at" =>  date('Y-m-d H:i:s', strtotime("+1 hours")),
+        //         "updated_at" => date('Y-m-d H:i:s', strtotime("+1 hours")),
+        //     ]);
+        // DB::table('ingredients')
+        //     ->insert([
+        //         'name' => 'gräddfil',
+        //         "created_at" =>  date('Y-m-d H:i:s', strtotime("+1 hours")),
+        //         "updated_at" => date('Y-m-d H:i:s', strtotime("+1 hours")),
+        //     ]);
+        // DB::table('ingredients')
+        //     ->insert([
+        //         'name' => 'gräslök',
+        //         "created_at" =>  date('Y-m-d H:i:s', strtotime("+1 hours")),
+        //         "updated_at" => date('Y-m-d H:i:s', strtotime("+1 hours")),
+        //     ]);
+        // DB::table('ingredients')
+        //     ->insert([
+        //         'name' => 'ägg',
+        //         "created_at" =>  date('Y-m-d H:i:s', strtotime("+1 hours")),
+        //         "updated_at" => date('Y-m-d H:i:s', strtotime("+1 hours")),
+        //     ]);
 
         // DB::table('ingredients')->delete();
 
