@@ -19,9 +19,14 @@ class AddRecipeController extends Controller
             $user = Auth::user();
             $user = $request->user();
             // print_r($user); 
+
+            $categories = DB::select('select * from categories');
             $ingredients = DB::select('select * from ingredients');
-            return view('addRecipe')->with('ingredients', $ingredients);
+            return view('addRecipe')->with('ingredients', $ingredients)->with('categories', $categories);
         }
     }
 }
+//return for single var that works.
+//return view('addRecipe')->with('ingredients', $ingredients);
+
 //return view('addRecipe', ['user' => $user], 'ingredients', compact($ingredients));

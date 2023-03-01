@@ -1,7 +1,7 @@
 <?php 
 use App\Models\User;
-use App\Models\Ingredients;
-use App\Models\Categories;
+use App\Models\Ingredient;
+use App\Models\Category;
 echo "Here you can add a recipe";
 // print_r($ingredients);
 // echo $ingredients[0]['name'];
@@ -47,7 +47,12 @@ echo "Here you can add a recipe";
                 <option value="{{$category->id}}">{{$category->name}}</option>
             @endforeach
         </select>
-        
+        <div>
+            <label for="description"></label>
+            <textarea style="resize: none; margin-top:40px " name="description" id="" cols="68" rows="10"></textarea>
+        </div>
+        <button type="submit">Skapa recept</button>
     </div>
+    <input type="hidden" name="_token" value="{{ csrf_token() }}" />
 </form>
 <a href="javascript:history.back()" type="button">go back</a>
