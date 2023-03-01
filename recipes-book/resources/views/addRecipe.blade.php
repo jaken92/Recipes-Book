@@ -1,6 +1,7 @@
 <?php 
 use App\Models\User;
 use App\Models\Ingredients;
+use App\Models\Categories;
 echo "Here you can add a recipe";
 // print_r($ingredients);
 // echo $ingredients[0]['name'];
@@ -35,5 +36,18 @@ echo "Here you can add a recipe";
     </div>
     <button action="Här ska det va controller heheh" type="submit">Lägg till ingredients</button>
     <input type="hidden" name="_token" value="{{ csrf_token() }}" />
+</form>
+<form action="">
+    <div>
+        <label for="title">Ange namn för ditt recept</label>
+        <input type="text" name="title">
+        <label for="category">Välj kategori för ditt recept</label>
+        <select name="category">
+            @foreach ($categories as $category)
+                <option value="{{$category->id}}">{{$category->name}}</option>
+            @endforeach
+        </select>
+        
+    </div>
 </form>
 <a href="javascript:history.back()" type="button">go back</a>
