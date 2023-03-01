@@ -20,7 +20,8 @@ class AddRecipeController extends Controller
             $user = $request->user();
             // print_r($user); 
             $ingredients = DB::select('select * from ingredients');
-            return view('addRecipe', ['user' => $user], $ingredients);
+            return view('addRecipe')->with('ingredients', $ingredients);
         }
     }
 }
+//return view('addRecipe', ['user' => $user], 'ingredients', compact($ingredients));
