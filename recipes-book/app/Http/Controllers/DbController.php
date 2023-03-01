@@ -58,6 +58,41 @@ class DbController extends Controller
         //         "updated_at" => date('Y-m-d H:i:s', strtotime("+1 hours")),
         //     ]);
 
+        /* DB::table('categories')
+            ->insert([
+                'name' => 'soppa',
+                "created_at" =>  date('Y-m-d H:i:s', strtotime("+1 hours")),
+                "updated_at" => date('Y-m-d H:i:s', strtotime("+1 hours")),
+            ]);
+
+        DB::table('categories')
+            ->insert([
+                'name' => 'dessert',
+                "created_at" =>  date('Y-m-d H:i:s', strtotime("+1 hours")),
+                "updated_at" => date('Y-m-d H:i:s', strtotime("+1 hours")),
+            ]);
+
+        DB::table('categories')
+            ->insert([
+                'name' => 'bröd',
+                "created_at" =>  date('Y-m-d H:i:s', strtotime("+1 hours")),
+                "updated_at" => date('Y-m-d H:i:s', strtotime("+1 hours")),
+            ]);
+
+        DB::table('categories')
+            ->insert([
+                'name' => 'gryta',
+                "created_at" =>  date('Y-m-d H:i:s', strtotime("+1 hours")),
+                "updated_at" => date('Y-m-d H:i:s', strtotime("+1 hours")),
+            ]);
+
+        DB::table('categories')
+            ->insert([
+                'name' => 'friterat',
+                "created_at" =>  date('Y-m-d H:i:s', strtotime("+1 hours")),
+                "updated_at" => date('Y-m-d H:i:s', strtotime("+1 hours")),
+            ]); */
+
         // DB::table('ingredients')->delete();
 
         /* $max = DB::table('ingredients')->max('id') + 1;
