@@ -12,7 +12,7 @@ echo "Here you can add a recipe";
 //     echo $ingredient->name;
 // }
 ?>
-<!-- <form action="">
+<form action="">
     <div>
         <label for="ingredients">Välj en ingredient för att lägga till i ditt recept</label>
         <select name="ingredients">
@@ -56,7 +56,7 @@ echo "Here you can add a recipe";
         <button type="submit">Skapa recept</button>
     </div>
     <input type="hidden" name="_token" value="{{ csrf_token() }}" />
-</form> -->
+</form>
 <form method="post" action="/addIngredientToDb">
     <h3>Create ingredient</h3>
     <label for="new-ingredient">Ingredient name</label>

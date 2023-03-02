@@ -31,17 +31,18 @@ class AddIngredientToDbController extends Controller
             // print_r($ingredients);
             // var_dump($ingredient);
             if (is_null($ingredient)) {
-                // echo "not exist";
-                return back()->withErrors("Ingredient already exists, check the dropdown menu.");
+                DB::table('ingredients')
+                    ->insert([
+                        'name' => $newIngredient['new-ingredient'],
+                        "created_at" =>  date('Y-m-d H:i:s', strtotime("+1 hours")),
+                        "updated_at" => date('Y-m-d H:i:s', strtotime("+1 hours")),
+
+                    ]);
             } else if ($ingredient->name == $newIngredient['new-ingredient']) {
-                echo "exist";
 
-
-                return back();
-            } else {
-                // echo "not exist";
                 return back()->withErrors("Ingredient already exists, check the dropdown menu.");
             }
+
             // return redirect('/recipe');
             // return back();
         }
