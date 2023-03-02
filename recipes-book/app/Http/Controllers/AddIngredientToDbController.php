@@ -11,13 +11,13 @@ class AddIngredientToDbController extends Controller
      */
     public function __invoke(Request $request)
     {
-        $this->validate($request, [
+        /*  $this->validate($request, [
             'name' => 'required|string|min:2'
         ]);
-
-        $newIngredient = $request->only(['new-ingredient']);
-
-        echo $newIngredient;
+ */
+        // $newIngredient = $request->only(['new-ingredient']);
+        return redirect('/addRecipe');
+        // echo $newIngredient;
         //return back()->withErrors("Ingredient already exists, check the dropdown menu.");
     }
 }

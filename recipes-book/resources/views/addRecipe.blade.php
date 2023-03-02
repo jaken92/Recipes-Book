@@ -1,4 +1,5 @@
-<?php 
+<?php
+
 use App\Models\User;
 use App\Models\Ingredient;
 use App\Models\Category;
@@ -11,12 +12,12 @@ echo "Here you can add a recipe";
 //     echo $ingredient->name;
 // }
 ?>
-<form action="">
+<!-- <form action="">
     <div>
         <label for="ingredients">Välj en ingredient för att lägga till i ditt recept</label>
         <select name="ingredients">
             @foreach ($ingredients as $ingredient)
-                <option value="{{$ingredient->id}}">{{$ingredient->name}}</option>
+            <option value="{{$ingredient->id}}">{{$ingredient->name}}</option>
             @endforeach
         </select>
         <label for="amount">Mängd</label>
@@ -45,7 +46,7 @@ echo "Here you can add a recipe";
         <label for="category">Välj kategori för ditt recept</label>
         <select name="category">
             @foreach ($categories as $category)
-                <option value="{{$category->id}}">{{$category->name}}</option>
+            <option value="{{$category->id}}">{{$category->name}}</option>
             @endforeach
         </select>
         <div>
@@ -55,7 +56,7 @@ echo "Here you can add a recipe";
         <button type="submit">Skapa recept</button>
     </div>
     <input type="hidden" name="_token" value="{{ csrf_token() }}" />
-</form>
+</form> -->
 <form method="post" action="/addIngredientToDb">
     <h3>Create ingredient</h3>
     <label for="new-ingredient">Ingredient name</label>

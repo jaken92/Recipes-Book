@@ -1,6 +1,6 @@
 <?php
 
-use App\Http\Controllers\addIngredientToDbController;
+use App\Http\Controllers\AddIngredientToDbController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\LoginController;
@@ -35,6 +35,6 @@ Route::post('addRecipe', AddRecipeController::class)->middleware('auth');
 
 Route::get('db', DbController::class);
 
-Route::post('addIngredientToDb', addIngredientToDbController::class);
+Route::post('addIngredientToDb', AddIngredientToDbController::class);
 
 // Route::post('previousPage', PreviousPageController::class);
