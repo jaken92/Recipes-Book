@@ -2,6 +2,7 @@
 use App\Models\User;
 use App\Models\Ingredient;
 use App\Models\Category;
+
 echo "Here you can add a recipe";
 // print_r($ingredients);
 // echo $ingredients[0]['name'];
@@ -55,7 +56,7 @@ echo "Here you can add a recipe";
     </div>
     <input type="hidden" name="_token" value="{{ csrf_token() }}" />
 </form>
-<form action="">
+<form method="post" action="/addIngredientToDb">
     <h3>Create ingredient</h3>
     <label for="new-ingredient">Ingredient name</label>
     <input type="text" name="new-ingredient">
@@ -63,3 +64,4 @@ echo "Here you can add a recipe";
     <input type="hidden" name="_token" value="{{ csrf_token() }}" />
 </form>
 <a href="javascript:history.back()" type="button">go back</a>
+@include("errors")
