@@ -55,4 +55,11 @@ echo "Here you can add a recipe";
     </div>
     <input type="hidden" name="_token" value="{{ csrf_token() }}" />
 </form>
+<form action="">
+    <h3>Create ingredient</h3>
+    <label for="new-ingredient">Ingredient name</label>
+    <input type="text" name="new-ingredient">
+    <button type="submit">Create Ingredient</button>
+    <input type="hidden" name="_token" value="{{ csrf_token() }}" />
+</form>
 <a href="javascript:history.back()" type="button">go back</a>
