@@ -31,7 +31,7 @@ Route::post('guest', GuestController::class);
 
 Route::post('recipe', RecipeController::class);
 
-Route::post('addRecipe', AddRecipeController::class)->middleware('auth');
+Route::get('addRecipe', AddRecipeController::class)->middleware('auth');
 
 Route::get('db', DbController::class);
 
