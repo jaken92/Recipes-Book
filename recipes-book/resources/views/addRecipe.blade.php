@@ -17,7 +17,7 @@ echo "Here you can add a recipe";
         <label for="ingredients">Välj en ingredient för att lägga till i ditt recept</label>
         <select name="ingredients">
             @foreach ($ingredients as $ingredient)
-            <option value="{{$ingredient->id}}">{{$ingredient->name}}</option>
+            <option id="{{$ingredient->id}}">{{$ingredient->name}}</option>
             @endforeach
         </select>
         <label for="amount">Mängd</label>
