@@ -14,7 +14,6 @@ echo "Here you can add a recipe";
 ?>
 <!doctype html>
 <link rel="stylesheet" href="/app.css">
-<script src="/addRecipe.js"></script>
 <body>
     <form action="">
         <div>
@@ -25,9 +24,9 @@ echo "Here you can add a recipe";
                 @endforeach
             </select>
             <label for="amount">Mängd</label>
-            <input type="text">
+            <input id="amount" type="text">
             <label for="unit">Enhet</label>
-            <select name="unit">
+            <select class="unit" name="unit">
                 <option>gram</option>
                 <option>hg</option>
                 <option>kg</option>
@@ -69,6 +68,7 @@ echo "Here you can add a recipe";
         <input type="hidden" name="_token" value="{{ csrf_token() }}" />
     </form>
     <a href="javascript:history.back()" type="button">go back</a>
+    <script src="/addRecipe.js "></script>
 </body>
 
 @include("errors")
