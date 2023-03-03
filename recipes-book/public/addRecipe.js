@@ -37,10 +37,23 @@ addIngredientBtn.addEventListener("click", function (event) {
         amount.value
     }</span> <span>${
         unit.options[unit.selectedIndex].text
-    }</span> <button>Delete</button></li>`;
+    }</span> <button class"delete-button">Delete</button></li>`;
 
     // document.getElementById("myLi").appendChild(listItem);
 });
+
+const deleteButtons = document.querySelectorAll("button .delete-button");
+
+deleteButtons.forEach((button) => {
+    button.addEventListener("click", () => {
+        // index.remove();
+        console.log("Hello");
+    });
+});
+
+/* document
+    .getElementById("parent")
+    .removeChild(document.getElementById("parent").children[2]); */
 
 // var clone = chosenIngredient.cloneNode(true);
 
