@@ -1,7 +1,8 @@
 const chosenIngredient = document.getElementById("chosenIngredient");
 const amount = document.getElementById("amount");
-const list = document.querySelectorAll("ul");
-const unit = document.querySelectorAll(".unit");
+const list = document.querySelector("ul");
+// const unit = document.getElementById("#unit");
+const unit = document.querySelector(".unit");
 
 const addIngredientBtn = document.querySelector(".addIngredientBtn");
 // console.log(chosenIngredient.innerHTML);
@@ -30,8 +31,15 @@ addIngredientBtn.addEventListener("click", function (event) {
     // const textnode = document.createTextNode(text);
     // textnode.textContent = text;
     // listItem.appendChild(textnode);
+    // console.log(unit.options.value);
+    // console.log(unit.options[unit.selectedIndex].text);
+    list.innerHTML += `<li><span>${value}</span> <span>${
+        amount.value
+    }</span> <span>${
+        unit.options[unit.selectedIndex].text
+    }</span> <button>Delete</button></li>`;
 
-    document.getElementById("myLi").appendChild(listItem);
+    // document.getElementById("myLi").appendChild(listItem);
 });
 
 // var clone = chosenIngredient.cloneNode(true);

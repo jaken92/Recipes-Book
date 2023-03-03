@@ -29,17 +29,17 @@ echo "Here you can add a recipe";
             <label for="amount">Mängd</label>
             <input id="amount" type="text">
             <label for="unit">Enhet</label>
-            <select class="unit" name="unit">
-                <option>gram</option>
-                <option>hg</option>
-                <option>kg</option>
-                <option>liter</option>
-                <option>dl</option>
-                <option>ml</option>
-                <option>msk</option>
-                <option>tsk</option>
-                <option>krm</option>
-                <option>st</option>
+            <select id="unit" class="unit" name="unit" data-unit="selected">
+                <option value="gram" data-unit="gram">gram</option>
+                <option value="hg" data-unit="hg">hg</option>
+                <option value="kg">kg</option>
+                <option value="liter">liter</option>
+                <option value="dl">dl</option>
+                <option value="ml">ml</option>
+                <option value="msk">msk</option>
+                <option value="tsk">tsk</option>
+                <option value="krm">krm</option>
+                <option value="st">st</option>
             </select>
         </div>
         <button class="addIngredientBtn">Lägg till ingredients</button>
@@ -71,7 +71,8 @@ echo "Here you can add a recipe";
         <input type="hidden" name="_token" value="{{ csrf_token() }}" />
     </form>
     <a href="javascript:history.back()" type="button">go back</a>
-    <script src="/addRecipe.js "></script>
+    <script src="/addRecipe.js ">
+    </script>
 </body>
 
 @include("errors")
