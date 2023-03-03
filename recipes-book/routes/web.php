@@ -37,4 +37,6 @@ Route::get('db', DbController::class);
 
 Route::post('addIngredientToDb', AddIngredientToDbController::class);
 
+Route::post('addRecipeToDb', AddIngredientToDbController::class);
+
 // Route::post('previousPage', PreviousPageController::class);
