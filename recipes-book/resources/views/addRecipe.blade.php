@@ -14,10 +14,11 @@ echo "Here you can add a recipe";
 ?>
 <!doctype html>
 <link rel="stylesheet" href="/app.css">
+
 <body>
     <ul id="myLi">
     </ul>
-    <form action="">
+    <form action="/addRecipeToDb">
         <div>
             <label for="ingredients">Välj en ingredient för att lägga till i ditt recept</label>
             <select id="chosenIngredient" name="ingredients">

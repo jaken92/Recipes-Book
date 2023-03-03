@@ -44,7 +44,7 @@ class AddIngredientToDbController extends Controller
             }
 
             // return redirect('/recipe');
-            // return back();
+            return back();
         }
 
         // return back();
