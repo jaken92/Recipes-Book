@@ -15,7 +15,7 @@ echo "Here you can add a recipe";
 <!doctype html>
 <link rel="stylesheet" href="/app.css">
 <body>
-    <ul class="test">
+    <ul id="myLi">
     </ul>
     <form action="">
         <div>
@@ -41,8 +41,8 @@ echo "Here you can add a recipe";
                 <option>st</option>
             </select>
         </div>
-        <button action="Här ska det va controller heheh" type="submit">Lägg till ingredients</button>
-        <input type="hidden" name="_token" value="{{ csrf_token() }}" />
+        <button class="addIngredientBtn">Lägg till ingredients</button>
+        {{-- <input type="hidden" name="_token" value="{{ csrf_token() }}" /> --}}
     </form>
     <form action="">
         <div>
