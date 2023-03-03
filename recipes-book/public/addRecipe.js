@@ -1,13 +1,26 @@
-const e = document.getElementById("chosenIngredient");
+const chosenIngredient = document.getElementById("chosenIngredient");
 const amount = document.getElementById("amount");
-
+const list = document.querySelectorAll("ul");
 const unit = document.querySelectorAll(".unit");
 
 // console.log(chosenIngredient.innerHTML);
 // console.log(amount.value);
 // console.log(unit.value);
 
-var value = e.options[e.selectedIndex].value;
-var text = e.options[e.selectedIndex].text;
+chosenIngredient.addEventListener("change", () => {
+    var value = chosenIngredient.options[chosenIngredient.selectedIndex].value;
+    var text = chosenIngredient.options[chosenIngredient.selectedIndex].text;
+    var id = chosenIngredient.options[chosenIngredient.selectedIndex].id;
+    console.log(value);
+    console.log(text);
+    console.log(id);
+    const span = document.createElement("li");
+    span.textContent = text;
+    span.id = id;
 
-console.log(value);
+    list.appendChild(span);
+});
+
+// var clone = chosenIngredient.cloneNode(true);
+
+// document.body.appendChild(clone);

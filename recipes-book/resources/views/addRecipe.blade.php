@@ -15,6 +15,8 @@ echo "Here you can add a recipe";
 <!doctype html>
 <link rel="stylesheet" href="/app.css">
 <body>
+    <ul class="test">
+    </ul>
     <form action="">
         <div>
             <label for="ingredients">Välj en ingredient för att lägga till i ditt recept</label>
