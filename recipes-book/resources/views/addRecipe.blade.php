@@ -14,10 +14,11 @@ echo "Here you can add a recipe";
 ?>
 <!doctype html>
 <link rel="stylesheet" href="/app.css">
+
 <body>
     <ul class="test">
     </ul>
-    <form action="">
+    <form action="/addRecipeToDb">
         <div>
             <label for="ingredients">Välj en ingredient för att lägga till i ditt recept</label>
             <select id="chosenIngredient" name="ingredients">
@@ -41,7 +42,7 @@ echo "Here you can add a recipe";
                 <option>st</option>
             </select>
         </div>
-        <button action="Här ska det va controller heheh" type="submit">Lägg till ingredients</button>
+        <button>Lägg till ingredients</button>
         <input type="hidden" name="_token" value="{{ csrf_token() }}" />
     </form>
     <form action="">
