@@ -48,8 +48,9 @@ function addDeleteEvent() {
 
     deleteButtons.forEach((button) => {
         button.addEventListener("click", () => {
-            const row = button.parentNode;
-            row.remove();
+            // const row = button.parentNode;
+            // row.remove();
+            button.parentNode.remove();
         });
     });
 }
