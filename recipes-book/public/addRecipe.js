@@ -5,9 +5,6 @@ const list = document.querySelector("ul");
 const unit = document.querySelector(".unit");
 
 const addIngredientBtn = document.querySelector(".addIngredientBtn");
-// console.log(chosenIngredient.innerHTML);
-// console.log(amount.value);
-// console.log(unit.value);
 
 // var i =0;
 // function doStuff(){
@@ -37,19 +34,26 @@ addIngredientBtn.addEventListener("click", function (event) {
         amount.value
     }</span> <span>${
         unit.options[unit.selectedIndex].text
-    }</span> <button class"delete-button">Delete</button></li>`;
+    }</span> <button class="delete-button">Delete</button></li>`;
 
     // document.getElementById("myLi").appendChild(listItem);
+    let listLength = list.childElementCount;
+    console.log(listLength);
+    addDeleteEvent();
 });
 
-const deleteButtons = document.querySelectorAll("button .delete-button");
+// add eventlistener to each deletebutton.
+function addDeleteEvent() {
+    const deleteButtons = document.querySelectorAll(".delete-button");
 
-deleteButtons.forEach((button) => {
-    button.addEventListener("click", () => {
-        // index.remove();
-        console.log("Hello");
+    deleteButtons.forEach((button) => {
+        button.addEventListener("click", () => {
+            const row = button.parentNode;
+            row.remove();
+        });
     });
-});
+}
+// const nodeList = list.childNodes;
 
 /* document
     .getElementById("parent")
@@ -58,3 +62,9 @@ deleteButtons.forEach((button) => {
 // var clone = chosenIngredient.cloneNode(true);
 
 // document.body.appendChild(clone);
+
+// deleteButtons.forEach((button) => {
+//     button.addEventListener("click", () => {
+//         console.log("imma btn");
+//     });
+// });
