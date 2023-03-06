@@ -34,22 +34,22 @@ class AddRecipeToDbController extends Controller
             $amount = $request->only(['amount']);
             $unit = $request->only(['unit']);
 
-            var_dump($title);
-            var_dump($category);
-            var_dump($instructions);
+            //  var_dump($title);
+            // var_dump($category);
+            // var_dump($instructions);
             var_dump($ingredients);
-            var_dump($amount);
-            var_dump($unit);
+            // var_dump($amount);
+            // var_dump($unit);
 
-            echo $unit['unit'][0];
+            // echo $unit['unit'][0];
 
-            echo $ingredients['ingredients'][0] . $amount['amount'][0] . $unit['unit'][0];
+            // echo $ingredients['ingredients'][0] . $amount['amount'][0] . $unit['unit'][0];
 
             // $ingredient = DB::table('ingredients')->where('name', $ingredients['ingredients'])->first();
 
             //insert into table and get last id.
 
-            $productId = DB::table('recipes')->insertGetId(
+            $recipeId = DB::table('recipes')->insertGetId(
                 [
                     'user_id' => $user->id,
                     'title' => $title['title'],
@@ -59,7 +59,29 @@ class AddRecipeToDbController extends Controller
                     "updated_at" => date('Y-m-d H:i:s', strtotime("+1 hours")),
                 ]
             );
-            var_dump($productId);
+            // var_dump($recipeId);
+            // echo $recipeId;
+
+
+            // var_dump($ingredientId);  
+            for ($i = 0; $i < count($ingredients['ingredients']); $i++) {
+
+                /* $ingredientId = DB::select('select id from ingredients where name =' . "\'" . $ingredients['ingredients'][$i] . "\'"); */
+
+                $ingredientId = DB::table('ingredients')->select('id')->where("name", "=", $ingredients['ingredients'][$i])->get();
+
+                $recipeId = DB::table('recipe_ingredients')->insert(
+                    [
+                        'recipe_id' => $recipeId,
+                        'ingredient_id' => $ingredientId[0]->id,
+                        'amount' => $amount['amount'][$i],
+                        'unit' => $unit['unit'][$i],
+                        "created_at" =>  date('Y-m-d H:i:s', strtotime("+1 hours")),
+                        "updated_at" => date('Y-m-d H:i:s', strtotime("+1 hours")),
+                    ]
+                );
+            }
+
             // var_dump($productId);
             // echo $productId;
             // print_r($user);
