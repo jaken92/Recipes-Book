@@ -56,6 +56,7 @@ addIngredientBtn.addEventListener("click", function (event) {
 
     chosenIngredientClone.name = `ingredients[${ingredientListid}]`;
     amountClone.name = `amount[${ingredientListid}]`;
+    unitClone.name = `unit[${ingredientListid}]`;
 
     newChocie.appendChild(chosenIngredientClone);
     newChocie.appendChild(amountLabel);

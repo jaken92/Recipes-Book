@@ -15,12 +15,10 @@ class AddRecipeToDbController extends Controller
     public function __invoke(Request $request)
     {
         $this->validate($request, [
-            /*  'ingredient-name' => 'required|string|min:2',
-            'ingredient-amount' => 'required|string|min:2',
-            'ingredient-unit' => 'required|string|min:2', */
             'title' => 'required|string|min:2',
             'description' => 'required|string|min:2',
-            // 'amount' => 'required|int|min:1',
+            'amount' => 'required|array',
+            'amount.*' => 'required|int'
         ]);
 
         $title = $request->only(['title']);
@@ -28,12 +26,18 @@ class AddRecipeToDbController extends Controller
         $description = $request->only(['description']);
         $ingredients = $request->only(['ingredients']);
         $amount = $request->only(['amount']);
+        $unit = $request->only(['unit']);
 
         var_dump($title);
         var_dump($category);
         var_dump($description);
         var_dump($ingredients);
         var_dump($amount);
+        var_dump($unit);
+
+        echo $unit['unit'][0];
+
+        echo $ingredients['ingredients'][0] . $amount['amount'][0] . $unit['unit'][0];
 
         // $newIngredient = $request->only(['new-ingredient']);
 
