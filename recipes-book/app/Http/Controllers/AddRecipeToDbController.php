@@ -20,17 +20,20 @@ class AddRecipeToDbController extends Controller
             'ingredient-unit' => 'required|string|min:2', */
             'title' => 'required|string|min:2',
             'description' => 'required|string|min:2',
+            // 'amount' => 'required|int|min:1',
         ]);
 
         $title = $request->only(['title']);
         $category = $request->only(['category']);
         $description = $request->only(['description']);
         $ingredients = $request->only(['ingredients']);
+        $amount = $request->only(['amount']);
 
         var_dump($title);
         var_dump($category);
         var_dump($description);
         var_dump($ingredients);
+        var_dump($amount);
 
         // $newIngredient = $request->only(['new-ingredient']);
 
