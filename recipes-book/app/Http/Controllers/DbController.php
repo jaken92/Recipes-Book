@@ -101,5 +101,18 @@ class DbController extends Controller
         $result = DB::select('select * from ingredients');
 
         print_r($result);
+
+
+        //insert into table and get last id. 
+        //     $productId = DB::table('ingredients')->insertGetId(
+        //         [
+        //             'name' => 'morot',
+        //             "created_at" =>  date('Y-m-d H:i:s', strtotime("+1 hours")),
+        //             "updated_at" => date('Y-m-d H:i:s', strtotime("+1 hours")),
+
+        //         ]
+        //     );
+        //     // var_dump($productId);
+        //     echo $productId;
     }
 }
