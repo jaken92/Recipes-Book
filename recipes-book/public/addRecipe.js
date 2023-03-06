@@ -1,7 +1,6 @@
 const chosenIngredient = document.getElementById("chosenIngredient");
 const amount = document.getElementById("amount");
 const list = document.querySelector("ul");
-// const unit = document.getElementById("#unit");
 const unit = document.querySelector(".unit");
 const addIngredientBtn = document.querySelector(".addIngredientBtn");
 const ingredientList = document.querySelector(".ingredient-list");
@@ -9,12 +8,9 @@ const button = document.querySelector(".delete-button");
 
 const test = document.getElementById("testing");
 
-// var i =0;
-// function doStuff(){
-//    var proc = "<span> my text instead x"+i + "</span>" ;
-//    document.getElementById("myLi").innerHTML = proc;
-//   i++;
-// }
+let chosenIngredientClone = chosenIngredient.cloneNode(true);
+let amountClone = amount.cloneNode(true);
+let unitClone = unit.cloneNode(true);
 
 let ingredientListid = 1;
 
@@ -44,16 +40,21 @@ addIngredientBtn.addEventListener("click", function (event) {
     <button class="delete-button">Delete</button></li>`; */
 
     const newChocie = document.createElement("div");
+    let amountLabel = document.createElement("label");
+    let unitLabel = document.createElement("label");
 
-    let chosenIngredientClone = chosenIngredient.cloneNode(true);
-    let amountClone = amount.cloneNode(true);
-    let unitClone = unit.cloneNode(true);
-    // let buttonClone = button.cloneNode(true);
+    chosenIngredientClone = chosenIngredient.cloneNode(true);
+    amountLabel.textContent = "Mängd";
+    amountClone = amount.cloneNode(true);
+    unitLabel.textContent = "Mängd";
+    unitClone = unit.cloneNode(true);
 
     chosenIngredientClone.name = `ingredients[${ingredientListid}]`;
 
     newChocie.appendChild(chosenIngredientClone);
+    newChocie.appendChild(amountLabel);
     newChocie.appendChild(amountClone);
+    newChocie.appendChild(unitLabel);
     newChocie.appendChild(unitClone);
 
     ingredientList.appendChild(newChocie);
@@ -82,9 +83,9 @@ function addDeleteEvent() {
 // document.getElementById("parent");
 // .removeChild(document.getElementById("parent").children[2]);
 
-let chosenIngredientClone = chosenIngredient.cloneNode(true);
+/* let chosenIngredientClone = chosenIngredient.cloneNode(true);
 let amountClone = amount.cloneNode(true);
-let unitClone = unit.cloneNode(true);
+let unitClone = unit.cloneNode(true); */
 
 /* test.appendChild(chosenIngredientClone);
 test.appendChild(amountClone);
@@ -95,11 +96,3 @@ test.appendChild(amountClone);
 test.appendChild(unitClone); */
 
 // chosenIngredientClone.name = "blue";
-
-// console.log(test);
-
-// deleteButtons.forEach((button) => {
-//     button.addEventListener("click", () => {
-//         console.log("imma btn");
-//     });
-// });
