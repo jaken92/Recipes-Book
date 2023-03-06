@@ -5,6 +5,7 @@ const list = document.querySelector("ul");
 const unit = document.querySelector(".unit");
 const addIngredientBtn = document.querySelector(".addIngredientBtn");
 const ingredientList = document.querySelector(".ingredient-list");
+const button = document.querySelector(".delete-button");
 
 const test = document.getElementById("testing");
 
@@ -15,7 +16,7 @@ const test = document.getElementById("testing");
 //   i++;
 // }
 
-let ingredientListid = 0;
+let ingredientListid = 1;
 
 addIngredientBtn.addEventListener("click", function (event) {
     event.preventDefault();
@@ -47,6 +48,7 @@ addIngredientBtn.addEventListener("click", function (event) {
     let chosenIngredientClone = chosenIngredient.cloneNode(true);
     let amountClone = amount.cloneNode(true);
     let unitClone = unit.cloneNode(true);
+    // let buttonClone = button.cloneNode(true);
 
     chosenIngredientClone.name = `ingredients[${ingredientListid}]`;
 
@@ -55,12 +57,12 @@ addIngredientBtn.addEventListener("click", function (event) {
     newChocie.appendChild(unitClone);
 
     ingredientList.appendChild(newChocie);
+    ingredientListid++;
 
     // document.getElementById("myLi").appendChild(listItem);
     let listLength = list.childElementCount;
     console.log(listLength);
     addDeleteEvent();
-    ingredientListid++;
 });
 
 // add eventlistener to each deletebutton.

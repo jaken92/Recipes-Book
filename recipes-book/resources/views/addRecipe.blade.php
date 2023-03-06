@@ -29,10 +29,10 @@ echo "Here you can add a recipe";
         </ul> -->
         <label for="ingredients">Välj en ingredient för att lägga till i ditt recept</label>
         <div class="ingredient-list">
-            <div id="ingredient">
-                <select id="chosenIngredient" name="ingredients">
+            <div>
+                <select id="chosenIngredient" name="ingredients[0]">
                     @foreach ($ingredients as $ingredient)
-                    <option id="{{$ingredient->id}}" name="ingredient-name[0]">{{$ingredient->name}}</option>
+                    <option id="{{$ingredient->id}}" name="ingredients">{{$ingredient->name}}</option>
                     @endforeach
                 </select>
                 <label for="amount">Mängd</label>
@@ -50,6 +50,7 @@ echo "Here you can add a recipe";
                     <option value="krm">krm</option>
                     <option value="st">st</option>
                 </select>
+                <button class="delete-button">Delete</button>
             </div>
         </div>
 
