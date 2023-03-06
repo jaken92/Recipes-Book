@@ -22,7 +22,7 @@ echo "Here you can add a recipe";
         <label for="category">Välj kategori för ditt recept</label>
         <select name="category">
             @foreach ($categories as $category)
-            <option value="{{$category->name}}">{{$category->name}}</option>
+            <option value="{{$category->id}}">{{$category->name}}</option>
             @endforeach
         </select>
         <!-- <ul id="myLi" name="ingredients-list">
