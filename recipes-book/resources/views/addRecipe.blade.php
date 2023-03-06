@@ -16,45 +16,45 @@ echo "Here you can add a recipe";
 <link rel="stylesheet" href="/app.css">
 
 <body>
-    <ul id="myLi">
-    </ul>
-    <form action="/addRecipeToDb">
-        <div>
-            <label for="ingredients">Välj en ingredient för att lägga till i ditt recept</label>
-            <select id="chosenIngredient" name="ingredients">
-                @foreach ($ingredients as $ingredient)
-                <option id="{{$ingredient->id}}">{{$ingredient->name}}</option>
-                @endforeach
-            </select>
-            <label for="amount">Mängd</label>
-            <input id="amount" type="text">
-            <label for="unit">Enhet</label>
-            <select id="unit" class="unit" name="unit" data-unit="selected">
-                <option value="gram" data-unit="gram">gram</option>
-                <option value="hg" data-unit="hg">hg</option>
-                <option value="kg">kg</option>
-                <option value="liter">liter</option>
-                <option value="dl">dl</option>
-                <option value="ml">ml</option>
-                <option value="msk">msk</option>
-                <option value="tsk">tsk</option>
-                <option value="krm">krm</option>
-                <option value="st">st</option>
-            </select>
+    <form action="/addRecipeToDb" method="post">
+        <label for="title">Ange namn för ditt recept</label>
+        <input type="text" name="title">
+        <label for="category">Välj kategori för ditt recept</label>
+        <select name="category">
+            @foreach ($categories as $category)
+            <option value="{{$category->name}}">{{$category->name}}</option>
+            @endforeach
+        </select>
+        <!-- <ul id="myLi" name="ingredients-list">
+        </ul> -->
+        <label for="ingredients">Välj en ingredient för att lägga till i ditt recept</label>
+        <div class="ingredient-list">
+            <div id="ingredient">
+                <select id="chosenIngredient" name="ingredients">
+                    @foreach ($ingredients as $ingredient)
+                    <option id="{{$ingredient->id}}" name="ingredient-name[0]">{{$ingredient->name}}</option>
+                    @endforeach
+                </select>
+                <label for="amount">Mängd</label>
+                <input id="amount" type="text">
+                <label for="unit">Enhet</label>
+                <select id="unit" class="unit" name="unit" data-unit="selected">
+                    <option value="gram" data-unit="gram">gram</option>
+                    <option value="hg" data-unit="hg">hg</option>
+                    <option value="kg">kg</option>
+                    <option value="liter">liter</option>
+                    <option value="dl">dl</option>
+                    <option value="ml">ml</option>
+                    <option value="msk">msk</option>
+                    <option value="tsk">tsk</option>
+                    <option value="krm">krm</option>
+                    <option value="st">st</option>
+                </select>
+            </div>
         </div>
+
         <button class="addIngredientBtn">Lägg till ingredients</button>
-        {{-- <input type="hidden" name="_token" value="{{ csrf_token() }}" /> --}}
-    </form>
-    <form action="">
         <div>
-            <label for="title">Ange namn för ditt recept</label>
-            <input type="text" name="title">
-            <label for="category">Välj kategori för ditt recept</label>
-            <select name="category">
-                @foreach ($categories as $category)
-                <option value="{{$category->id}}">{{$category->name}}</option>
-                @endforeach
-            </select>
             <div>
                 <label for="description"></label>
                 <textarea style="resize: none; margin-top:40px " name="description" id="" cols="68" rows="10"></textarea>
@@ -63,6 +63,7 @@ echo "Here you can add a recipe";
         </div>
         <input type="hidden" name="_token" value="{{ csrf_token() }}" />
     </form>
+
     <form method="post" action="/addIngredientToDb">
         <h3>Create ingredient</h3>
         <label for="new-ingredient">Ingredient name</label>
@@ -71,7 +72,7 @@ echo "Here you can add a recipe";
         <input type="hidden" name="_token" value="{{ csrf_token() }}" />
     </form>
     <a href="javascript:history.back()" type="button">go back</a>
-    <script src="/addRecipe.js ">
+    <script src="/addRecipe.js">
     </script>
 </body>
 

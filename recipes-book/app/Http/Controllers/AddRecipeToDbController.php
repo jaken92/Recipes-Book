@@ -14,14 +14,27 @@ class AddRecipeToDbController extends Controller
      */
     public function __invoke(Request $request)
     {
-        //
         $this->validate($request, [
-            'new-ingredient' => 'required|string|min:2'
+            /*  'ingredient-name' => 'required|string|min:2',
+            'ingredient-amount' => 'required|string|min:2',
+            'ingredient-unit' => 'required|string|min:2', */
+            'title' => 'required|string|min:2',
+            'description' => 'required|string|min:2',
         ]);
 
-        $newIngredient = $request->only(['new-ingredient']);
+        $title = $request->only(['title']);
+        $category = $request->only(['category']);
+        $description = $request->only(['description']);
+        $ingredients = $request->only(['ingredients']);
 
-        if (Auth::check()) {
+        var_dump($title);
+        var_dump($category);
+        var_dump($description);
+        var_dump($ingredients);
+
+        // $newIngredient = $request->only(['new-ingredient']);
+
+        /* if (Auth::check()) {
             $user = Auth::user();
             $user = $request->user();
 
@@ -44,7 +57,7 @@ class AddRecipeToDbController extends Controller
 
             // return redirect('/recipe');
             return back();
-        }
+        } */
 
         // return back();
 

@@ -7,6 +7,7 @@ use App\Http\Controllers\LoginController;
 use App\Http\Controllers\GuestController;
 use App\Http\Controllers\RecipeController;
 use App\Http\Controllers\AddRecipeController;
+use App\Http\Controllers\AddRecipeToDbController;
 use App\Http\Controllers\DbController;
 use App\Http\Controllers\PreviousPageController;
 
@@ -37,6 +38,6 @@ Route::get('db', DbController::class);
 
 Route::post('addIngredientToDb', AddIngredientToDbController::class);
 
-Route::post('addRecipeToDb', AddIngredientToDbController::class);
+Route::post('addRecipeToDb', AddRecipeToDbController::class);
 
 // Route::post('previousPage', PreviousPageController::class);
