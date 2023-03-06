@@ -36,7 +36,7 @@ echo "Here you can add a recipe";
                     @endforeach
                 </select>
                 <label for="amount">Mängd</label>
-                <input id="amount" type="text">
+                <input id="amount" type="text" name="amount[0]">
                 <label for="unit">Enhet</label>
                 <select id="unit" class="unit" name="unit" data-unit="selected">
                     <option value="gram" data-unit="gram">gram</option>
