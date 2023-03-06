@@ -52,7 +52,6 @@ addIngredientBtn.addEventListener("click", function (event) {
     const singleDeleteBtn = document.createElement("button");
     singleDeleteBtn.textContent = "Delete";
     singleDeleteBtn.classList.add("delete-button");
-    // let buttonClone = button.cloneNode(true);
 
     chosenIngredientClone.name = `ingredients[${ingredientListid}]`;
 
