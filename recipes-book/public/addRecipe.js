@@ -49,6 +49,11 @@ addIngredientBtn.addEventListener("click", function (event) {
     unitLabel.textContent = "Mängd";
     unitClone = unit.cloneNode(true);
 
+    const singleDeleteBtn = document.createElement("button");
+    singleDeleteBtn.textContent = "Delete";
+    singleDeleteBtn.classList.add("delete-button");
+    // let buttonClone = button.cloneNode(true);
+
     chosenIngredientClone.name = `ingredients[${ingredientListid}]`;
 
     newChocie.appendChild(chosenIngredientClone);
@@ -56,13 +61,14 @@ addIngredientBtn.addEventListener("click", function (event) {
     newChocie.appendChild(amountClone);
     newChocie.appendChild(unitLabel);
     newChocie.appendChild(unitClone);
+    newChocie.appendChild(singleDeleteBtn);
 
     ingredientList.appendChild(newChocie);
     ingredientListid++;
 
     // document.getElementById("myLi").appendChild(listItem);
-    let listLength = list.childElementCount;
-    console.log(listLength);
+    // let listLength = list.childElementCount;
+    // console.log(listLength);
     addDeleteEvent();
 });
 

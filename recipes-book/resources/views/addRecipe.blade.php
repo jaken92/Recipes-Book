@@ -50,7 +50,6 @@ echo "Here you can add a recipe";
                     <option value="krm">krm</option>
                     <option value="st">st</option>
                 </select>
-                <button class="delete-button">Delete</button>
             </div>
         </div>
 
