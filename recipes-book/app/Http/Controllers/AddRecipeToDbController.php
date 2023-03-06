@@ -22,21 +22,21 @@ class AddRecipeToDbController extends Controller
 
             $this->validate($request, [
                 'title' => 'required|string|min:2',
-                'description' => 'required|string|min:2',
+                'instructions' => 'required|string|min:2',
                 'amount' => 'required|array',
                 'amount.*' => 'required|int'
             ]);
 
             $title = $request->only(['title']);
             $category = $request->only(['category']);
-            $description = $request->only(['description']);
+            $instructions = $request->only(['instructions']);
             $ingredients = $request->only(['ingredients']);
             $amount = $request->only(['amount']);
             $unit = $request->only(['unit']);
 
             var_dump($title);
             var_dump($category);
-            var_dump($description);
+            var_dump($instructions);
             var_dump($ingredients);
             var_dump($amount);
             var_dump($unit);
@@ -54,7 +54,7 @@ class AddRecipeToDbController extends Controller
                     'user_id' => $user->id,
                     'title' => $title['title'],
                     'category_id' => $category['category'],
-                    'instructions' => $description['description'],
+                    'instructions' => $instructions['instructions'],
                     "created_at" =>  date('Y-m-d H:i:s', strtotime("+1 hours")),
                     "updated_at" => date('Y-m-d H:i:s', strtotime("+1 hours")),
                 ]

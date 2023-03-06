@@ -56,8 +56,8 @@ echo "Here you can add a recipe";
         <button class="addIngredientBtn">Lägg till ingredients</button>
         <div>
             <div>
-                <label for="description"></label>
-                <textarea style="resize: none; margin-top:40px " name="description" id="" cols="68" rows="10"></textarea>
+                <label for="instructions"></label>
+                <textarea style="resize: none; margin-top:40px " name="instructions" id="" cols="68" rows="10"></textarea>
             </div>
             <button type="submit">Skapa recept</button>
         </div>
