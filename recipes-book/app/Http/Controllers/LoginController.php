@@ -15,13 +15,12 @@ class LoginController extends Controller
         $credentials = $request->only("email", "password");
 
         if (Auth::attempt($credentials)) {
-            // redirect to dashboard
+
             $request->session()->regenerate();
 
             return redirect()->intended("dashboard");
         }
-        // redirect to index
+
         return back()->withErrors("Woops! Please try login again");
-        // Woops! Please try login again
     }
 }

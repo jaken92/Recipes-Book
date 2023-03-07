@@ -27,9 +27,7 @@ class AddIngredientToDbController extends Controller
             $user = $request->user();
 
             $ingredient = DB::table('ingredients')->where('name', $newIngredient['new-ingredient'])->first();
-            // print_r($user);
-            // print_r($ingredients);
-            // var_dump($ingredient);
+
             if (is_null($ingredient)) {
                 DB::table('ingredients')
                     ->insert([
@@ -43,12 +41,9 @@ class AddIngredientToDbController extends Controller
                 return back()->withErrors("Ingredient already exists, check the dropdown menu.");
             }
 
-            // return redirect('/recipe');
             return back();
         }
 
-        // return back();
-
-        // var_dump($newIngredient);        
+        return redirect('/');
     }
 }

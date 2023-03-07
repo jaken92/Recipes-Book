@@ -13,20 +13,16 @@ class AddRecipeController extends Controller
      */
     public function __invoke(Request $request)
     {
-
-
         if (Auth::check()) {
             $user = Auth::user();
             $user = $request->user();
-            // print_r($user); 
 
-            $categories = DB::select('select * from categories');
-            $ingredients = DB::select('select * from ingredients');
+            $categories = DB::table('categories')->get();
+
+            $ingredients = DB::table('ingredients')->get();
+
             return view('addRecipe')->with('ingredients', $ingredients)->with('categories', $categories);
         }
+        return redirect('/');
     }
 }
-//return for single var that works.
-//return view('addRecipe')->with('ingredients', $ingredients);
-
-//return view('addRecipe', ['user' => $user], 'ingredients', compact($ingredients));

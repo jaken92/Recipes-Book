@@ -17,8 +17,10 @@ class DashboardController extends Controller
         if (Auth::check()) {
             $user = Auth::user();
             $user = $request->user();
-            // print_r($user);            
+
             return view('dashboard', ['user' => $user]);
         }
+
+        return redirect('/');
     }
 }

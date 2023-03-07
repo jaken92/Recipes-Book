@@ -4,13 +4,6 @@ use App\Models\User;
 use App\Models\Ingredient;
 use App\Models\Category;
 
-echo "Here you can add a recipe";
-// print_r($ingredients);
-// echo $ingredients[0]['name'];
-// echo $ingredients[0]->name;
-// foreach($ingredients as $ingredient){
-//     echo $ingredient->name;
-// }
 ?>
 <!doctype html>
 <link rel="stylesheet" href="/app.css">
@@ -25,8 +18,6 @@ echo "Here you can add a recipe";
             <option value="{{$category->id}}">{{$category->name}}</option>
             @endforeach
         </select>
-        <!-- <ul id="myLi" name="ingredients-list">
-        </ul> -->
         <label for="ingredients">Välj en ingredient för att lägga till i ditt recept</label>
         <div class="ingredient-list">
             <div>

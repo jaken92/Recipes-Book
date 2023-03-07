@@ -12,8 +12,6 @@ class RecipeController extends Controller
      */
     public function __invoke(Request $request)
     {
-        // return redirect("recipe");
-        // return redirect()->intended("recipe");
         return view('recipe');
     }
 }
