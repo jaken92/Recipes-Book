@@ -43,25 +43,25 @@ addIngredientBtn.addEventListener("click", function (event) {
     let amountLabel = document.createElement("label");
     let unitLabel = document.createElement("label");
 
-    chosenIngredientClone = chosenIngredient.cloneNode(true);
+    let newChosenIngredientClone = chosenIngredientClone.cloneNode(true);
     amountLabel.textContent = "Mängd";
-    amountClone = amount.cloneNode(true);
+    let newAmountClone = amountClone.cloneNode(true);
     unitLabel.textContent = "Enhet";
-    unitClone = unit.cloneNode(true);
+    let newUnitClone = unitClone.cloneNode(true);
 
     const singleDeleteBtn = document.createElement("button");
     singleDeleteBtn.textContent = "Delete";
     singleDeleteBtn.classList.add("delete-button");
 
-    chosenIngredientClone.name = `ingredients[${ingredientListid}]`;
-    amountClone.name = `amount[${ingredientListid}]`;
-    unitClone.name = `unit[${ingredientListid}]`;
+    newChosenIngredientClone.name = `ingredients[${ingredientListid}]`;
+    newAmountClone.name = `amount[${ingredientListid}]`;
+    newUnitClone.name = `unit[${ingredientListid}]`;
 
-    newChocie.appendChild(chosenIngredientClone);
+    newChocie.appendChild(newChosenIngredientClone);
     newChocie.appendChild(amountLabel);
-    newChocie.appendChild(amountClone);
+    newChocie.appendChild(newAmountClone);
     newChocie.appendChild(unitLabel);
-    newChocie.appendChild(unitClone);
+    newChocie.appendChild(newUnitClone);
     newChocie.appendChild(singleDeleteBtn);
 
     ingredientList.appendChild(newChocie);
