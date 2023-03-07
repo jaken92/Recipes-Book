@@ -6,6 +6,7 @@ use App\Models\Ingredients;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Redirect;
 
 use function PHPUnit\Framework\isNull;
 
@@ -39,11 +40,17 @@ class AddIngredientToDbController extends Controller
             } else if ($ingredient->name == $newIngredient['new-ingredient']) {
 
                 return back()->withErrors("Ingredient already exists, check the dropdown menu.");
+                // return view('addRecipe');
+                // // return redirect('addRecipe');
             }
 
             return back();
+            // return view('addRecipe');
+            // // return redirect('addRecipe');
         }
 
         return redirect('/');
+        // return view('addRecipe');
+        // // return redirect('addRecipe');
     }
 }
