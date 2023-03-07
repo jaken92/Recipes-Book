@@ -10,6 +10,7 @@ use App\Http\Controllers\AddRecipeController;
 use App\Http\Controllers\AddRecipeToDbController;
 use App\Http\Controllers\DbController;
 use App\Http\Controllers\PreviousPageController;
+use App\Models\Recipe;
 
 /*
 |--------------------------------------------------------------------------
@@ -41,3 +42,9 @@ Route::post('addIngredientToDb', AddIngredientToDbController::class);
 Route::post('addRecipeToDb', AddRecipeToDbController::class);
 
 // Route::post('previousPage', PreviousPageController::class);
+
+Route::get('dashboard/{recipe}', function ($id) {
+    return view('recipe', [
+        'recipe' => Post::findOrFail($id)
+    ]);
+});
