@@ -7,7 +7,7 @@
 </form>
 
 @foreach ($recipes as $recipe)
-<a href="" data-recipeId="{{$recipe->recipe_id}}" style="display: block;">{{$recipe->title}}</a>
+<a href="" data-recipeId="{{$recipe->recipe_id}}" id="{{$recipe->recipe_id}}" style="display: block;">{{$recipe->recipe_id}}{{$recipe->title}}</a>
 @endforeach
 
 <!-- @foreach ($recipes as $recipe)
