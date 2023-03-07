@@ -8,5 +8,5 @@
 
 <form action="addRecipe" method="get">
     <button>Go to add Recipe page</button>
-    <input type="hidden" name="_token" value="{{ csrf_token() }}" />
+    <!-- <input type="hidden" name="_token" value="{{ csrf_token() }}" /> -->
 </form>
