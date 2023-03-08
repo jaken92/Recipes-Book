@@ -10,6 +10,21 @@ class LoginController extends Controller
     /**
      * Handle the incoming request.
      */
+
+    public function logout(Request $request)
+    {
+        Auth::logout();
+        return redirect('/');
+    }
+    //     public function logout(Request $request)
+    // {
+    //     $this->guard()->logout();
+
+    //     $request->session()->invalidate();
+
+    //     return $this->loggedOut($request) ?: redirect('/login');
+    // }
+
     public function __invoke(Request $request)
     {
         $credentials = $request->only("email", "password");

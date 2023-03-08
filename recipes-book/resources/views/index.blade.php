@@ -11,7 +11,8 @@
     <input type="hidden" name="_token" value="{{ csrf_token() }}" />
 </form>
 
-<form action="/guest" method="post">
+<a href="guest">Continue as guest</a>
+{{-- <form action="/guest" method="get">
     <button>Continue as guest</button>
     <input type="hidden" name="_token" value="{{ csrf_token() }}" />
-</form>
+</form> --}}
