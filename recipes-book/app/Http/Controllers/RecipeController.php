@@ -15,26 +15,23 @@ class RecipeController extends Controller
      */
     public function __invoke(Request $request)
     {
-
-        /* $singleRecipe = DB::table('recipes')->select('*')
-                ->where('id', '=', $recipe->recipe_id)
-                ->get();
-
-            return view('recipe')->with('recipe', $singleRecipe); */
     }
 
     public function show(Recipe $recipe)
     {
 
-        // echo $recipe['id'];
-        $singleRecipe = DB::table('recipes')->select('*')
-            ->where('id', '=', $recipe['id'])
+        $singleRecipe = DB::table('recipes')->select('recipes.title', 'categories.name as category_name', 'recipes.instructions', 'users.name as user_name')
+            ->join('users', 'recipes.user_id', '=', 'users.id')
+            ->join('categories', 'recipes.category_id', '=', 'categories.id')
+            ->where('recipes.id', '=', $recipe['id'])
             ->get();
-        // return view('user.profile', ['user' => $user]);
 
-        /*  foreach ($singleRecipe as $key => $value) {
-            echo $key;
-        } */
-        return view('recipe')->with('recipe', $singleRecipe);
+        $recipeIngredients
+            = DB::table('recipe_ingredients')->select('ingredients.name')
+            ->join('ingredients', 'recipe_ingredients.ingredient_id', '=', 'ingredients.id')
+            ->where('recipe_ingredients.recipe_id', '=', $recipe['id'])
+            ->get();
+
+        return view('recipe')->with('recipe', $singleRecipe)->with('allIngredients', $recipeIngredients);
     }
 }

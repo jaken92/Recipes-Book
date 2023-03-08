@@ -30,12 +30,12 @@ class DashboardController extends Controller
                 ->join('ingredients', 'ingredients.id', '=', 'recipe_ingredients.ingredient_id')
                 ->get();
 
-            // ->where('recipe_id', '=', 34)
-            // return view('dashboard')->with('user', $user)->with('categories', $categories)->with('ingredients', $ingredients)->with('recipes', $recipes)->with('recipe_ingredients', $recipeIngredients)->with('users', $users);
+            $recipeList = DB::table('recipes')->select('*')
+                ->get();
 
-            // echo $recipes[0]['ingredients'][0]['name'];
-
-            // foreach ($recipes as $key => $recipe) {
+            /*  foreach ($recipeList as $key => $value) {
+                echo $value->title;
+            } */
 
             /* echo $recipe->id;
                 echo $recipe->title;
@@ -51,7 +51,7 @@ class DashboardController extends Controller
             // echo $recipe->user_id;
             // }
 
-            return view('dashboard')->with('recipes', $recipes);
+            return view('dashboard')->with('recipes', $recipeList);
         }
 
         return redirect('/');
