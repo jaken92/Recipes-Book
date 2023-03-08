@@ -9,6 +9,7 @@ use App\Http\Controllers\RecipeController;
 use App\Http\Controllers\AddRecipeController;
 use App\Http\Controllers\AddRecipeToDbController;
 use App\Http\Controllers\DbController;
+use App\Http\Controllers\LogoutController;
 use App\Http\Controllers\PreviousPageController;
 use App\Models\Recipe;
 
@@ -29,9 +30,9 @@ Route::get('dashboard', DashboardController::class)->middleware('auth');
 
 Route::post('login', LoginController::class);
 
-Route::post('guest', GuestController::class);
+Route::get('guest', GuestController::class);
 
-Route::post('recipe', RecipeController::class);
+Route::get('recipe', RecipeController::class);
 
 Route::get('addRecipe', AddRecipeController::class)->middleware('auth');
 
@@ -42,8 +43,9 @@ Route::post('addIngredientToDb', AddIngredientToDbController::class);
 Route::post('addRecipeToDb', AddRecipeToDbController::class);
 
 Route::get('/recipes/{recipe}', [RecipeController::class, 'show']);
- 
+
 // Controller method definition...
+Route::post('logout', LogoutController::class);
 
 // Route::post('previousPage', PreviousPageController::class);
 
