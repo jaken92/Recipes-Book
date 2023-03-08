@@ -25,10 +25,16 @@ class RecipeController extends Controller
 
     public function show(Recipe $recipe)
     {
+
+        // echo $recipe['id'];
         $singleRecipe = DB::table('recipes')->select('*')
-            ->where('id', '=', $recipe->recipe_id)
+            ->where('id', '=', $recipe['id'])
             ->get();
         // return view('user.profile', ['user' => $user]);
+
+        /*  foreach ($singleRecipe as $key => $value) {
+            echo $key;
+        } */
         return view('recipe')->with('recipe', $singleRecipe);
     }
 }
