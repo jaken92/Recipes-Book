@@ -42,7 +42,7 @@ Route::post('addIngredientToDb', AddIngredientToDbController::class);
 
 Route::post('addRecipeToDb', AddRecipeToDbController::class);
 
-Route::get('/recipes/{recipe}', [RecipeController::class, 'show']);
+Route::get('/recipe/{recipe}', [RecipeController::class, 'show']);
 
 // Controller method definition...
 Route::post('logout', LogoutController::class);

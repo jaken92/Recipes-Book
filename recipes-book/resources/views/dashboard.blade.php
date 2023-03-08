@@ -9,7 +9,7 @@
 
 
 @foreach ($recipes as $recipe)
-<a href="recipes/{{$recipe->recipe_id}}" data-recipeId="{{$recipe->recipe_id}}" id="{{$recipe->recipe_id}}" style="display: block;">{{$recipe->recipe_id}}{{$recipe->title}}</a>
+<a href="recipe/{{$recipe->recipe_id}}" data-recipeId="{{$recipe->recipe_id}}" id="{{$recipe->recipe_id}}" style="display: block;">{{$recipe->recipe_id}}{{$recipe->title}}</a>
 @endforeach
 
 <!-- @foreach ($recipes as $recipe)

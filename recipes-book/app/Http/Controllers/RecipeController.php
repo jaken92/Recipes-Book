@@ -29,6 +29,6 @@ class RecipeController extends Controller
             ->where('id', '=', $recipe->recipe_id)
             ->get();
         // return view('user.profile', ['user' => $user]);
-        return view('recipes')->with('recipe', $singleRecipe);
+        return view('recipe')->with('recipe', $singleRecipe);
     }
 }
