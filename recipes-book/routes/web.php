@@ -41,6 +41,10 @@ Route::post('addIngredientToDb', AddIngredientToDbController::class);
 
 Route::post('addRecipeToDb', AddRecipeToDbController::class);
 
+Route::get('/recipes/{recipe}', [RecipeController::class, 'show']);
+ 
+// Controller method definition...
+
 // Route::post('previousPage', PreviousPageController::class);
 
 /* Route::get('dashboard/recipe{recipe}', function ($id) {

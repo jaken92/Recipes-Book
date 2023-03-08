@@ -33,27 +33,6 @@ class DashboardController extends Controller
             // ->where('recipe_id', '=', 34)
             // return view('dashboard')->with('user', $user)->with('categories', $categories)->with('ingredients', $ingredients)->with('recipes', $recipes)->with('recipe_ingredients', $recipeIngredients)->with('users', $users);
 
-            /*  $recipes = [
-                [
-                    'title' => 'title',
-                    'category' => 'category',
-                    'instructions' => 'instructions',
-                    'ingredients' => [
-                        [
-                            'name' => 'lök',
-                            'amount' => 6,
-                            'unit' => 'st'
-                        ],
-                        [
-                            'name' => 'morot',
-                            'amount' => 2,
-                            'unit' => 'hg'
-                        ]
-                    ]
-
-                ]
-            ]; */
-
             // echo $recipes[0]['ingredients'][0]['name'];
 
             // foreach ($recipes as $key => $recipe) {
@@ -72,10 +51,7 @@ class DashboardController extends Controller
             // echo $recipe->user_id;
             // }
 
-            // var_dump($recipes);
             return view('dashboard')->with('recipes', $recipes);
-
-            // return view('dashboard', ['user' => $user]);
         }
 
         return redirect('/');
