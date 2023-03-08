@@ -43,8 +43,8 @@ Route::post('addRecipeToDb', AddRecipeToDbController::class);
 
 // Route::post('previousPage', PreviousPageController::class);
 
-Route::get('dashboard/{recipe}', function ($id) {
+/* Route::get('dashboard/recipe{recipe}', function ($id) {
     return view('recipe', [
         'recipe' => Post::findOrFail($id)
     ]);
-});
+}); */

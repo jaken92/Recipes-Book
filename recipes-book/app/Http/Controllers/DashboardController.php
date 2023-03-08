@@ -33,7 +33,7 @@ class DashboardController extends Controller
             // ->where('recipe_id', '=', 34)
             // return view('dashboard')->with('user', $user)->with('categories', $categories)->with('ingredients', $ingredients)->with('recipes', $recipes)->with('recipe_ingredients', $recipeIngredients)->with('users', $users);
 
-            $recipes = [
+            /*  $recipes = [
                 [
                     'title' => 'title',
                     'category' => 'category',
@@ -52,13 +52,13 @@ class DashboardController extends Controller
                     ]
 
                 ]
-            ];
+            ]; */
 
-            echo $recipes[0]['ingredients'][0]['name'];
+            // echo $recipes[0]['ingredients'][0]['name'];
 
-            foreach ($recipes as $key => $recipe) {
+            // foreach ($recipes as $key => $recipe) {
 
-                /* echo $recipe->id;
+            /* echo $recipe->id;
                 echo $recipe->title;
                 echo $recipe->instructions;
                 echo $recipe->category_id;
@@ -67,17 +67,17 @@ class DashboardController extends Controller
                 echo $recipe->amount;
                 echo $recipe->unit; */
 
-                /* echo "recipe id: " . $recipe->recipe_id . " recipe title: " . $recipe->title . " recipe instructions: " . $recipe->instructions . " recipe category: " . $recipe->category_id . " ingredient id: " . $recipe->ingredient_id . " ingredient name: " . $recipe->name . " amount: " . $recipe->amount . $recipe->unit . " unit: ";
+            /* echo "recipe id: " . $recipe->recipe_id . " recipe title: " . $recipe->title . " recipe instructions: " . $recipe->instructions . " recipe category: " . $recipe->category_id . " ingredient id: " . $recipe->ingredient_id . " ingredient name: " . $recipe->name . " amount: " . $recipe->amount . $recipe->unit . " unit: ";
                 echo "<br>"; */
-                // echo $recipe->user_id;
-            }
+            // echo $recipe->user_id;
+            // }
 
             // var_dump($recipes);
-            // return view('dashboard')->with('recipes', $recipes);
+            return view('dashboard')->with('recipes', $recipes);
 
             // return view('dashboard', ['user' => $user]);
         }
 
-        // return redirect('/');
+        return redirect('/');
     }
 }

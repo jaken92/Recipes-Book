@@ -1,5 +1,3 @@
-
-
 <form action="/login" method="post">
     <div>
         <label for="email">Email</label>
@@ -11,7 +9,6 @@
     </div>
     <button type="submit">Login</button>
     <input type="hidden" name="_token" value="{{ csrf_token() }}" />
-
 </form>
 
 <form action="/guest" method="post">

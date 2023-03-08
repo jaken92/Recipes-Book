@@ -20,7 +20,7 @@ class Recipes extends Model
         return $this->hasMany(Ingredients::class);
     }
 
-    public function recipe()
+    public function user()
     {
         return $this->hasOne(User::class);
     }
