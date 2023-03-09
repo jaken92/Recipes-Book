@@ -32,7 +32,7 @@ Route::post('login', LoginController::class);
 
 // Route::get('guest', GuestController::class);
 
-Route::get('recipe', RecipeController::class);
+// Route::get('recipe', RecipeController::class);
 
 Route::get('addRecipe', AddRecipeController::class)->middleware('auth');
 
@@ -42,19 +42,10 @@ Route::post('addIngredientToDb', AddIngredientToDbController::class);
 
 Route::post('addRecipeToDb', AddRecipeToDbController::class);
 
-Route::get('/recipe/{recipe}', [RecipeController::class, 'show']);
+Route::get('/{recipe}', [RecipeController::class, 'show']);
 
-// Controller method definition...
 Route::post('logout', LogoutController::class);
 
 Route::view('register', 'registerUser')->name('registerUser');
 
 Route::post('saveUser', RegisterUserController::class);
-
-// Route::post('previousPage', PreviousPageController::class);
-
-/* Route::get('dashboard/recipe{recipe}', function ($id) {
-    return view('recipe', [
-        'recipe' => Post::findOrFail($id)
-    ]);
-}); */

@@ -3,11 +3,11 @@
 ?>
 
 @foreach ($recipes as $recipe)
-<a href="recipe/{{$recipe->id}}" data-recipeId="{{$recipe->id}}" id="{{$recipe->id}}" style="display: block;">{{$recipe->title}}</a>
+<a href="/{{$recipe->id}}" data-recipeId="{{$recipe->id}}" id="{{$recipe->id}}" style="display: block;">{{$recipe->title}}</a>
 @endforeach
 
 @auth
-    <a href="addRecipe">Go to add reciepe</a>
+<a href="addRecipe">Go to add reciepe</a>
 @endauth
 <div></div>
 <form action="logout" method="post">

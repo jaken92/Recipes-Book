@@ -12,4 +12,4 @@
 <p>{{$singleIngredient->name}}</p>
 @endforeach
 
-<a href="guest">go back</a>
+<a href="dashboard">go back</a>
