@@ -17,3 +17,5 @@
     <button type="submit">Continye as gueesst</button>
     <input type="hidden" name="_token" value="{{ csrf_token() }}" />
 </form>
+
+@include("errors")
