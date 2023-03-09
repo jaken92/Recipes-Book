@@ -9,9 +9,8 @@
     <label for="">Enter password</label>
     <input name="password" type="text">
 
-    <input type="hidden" name="_token" value="{{ csrf_token() }}" />
-
     <button type="submit">sumbit</button>
+    <input type="hidden" name="_token" value="{{ csrf_token() }}" />
 </form>
 <a href="/">Go back</a>
 
