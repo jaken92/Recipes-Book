@@ -1,11 +1,6 @@
 <?php echo "this is the dashboard";
 
 ?>
-{{-- <form action="recipe" method="post">
-    <button>Go to single Recipe</button>
-    <input type="hidden" name="_token" value="{{ csrf_token() }}" />
-</form> --}}
-<a href="recipe">Go to single recipe(title of each recipe)</a>
 
 @foreach ($recipes as $recipe)
 <a href="recipe/{{$recipe->id}}" data-recipeId="{{$recipe->id}}" id="{{$recipe->id}}" style="display: block;">{{$recipe->title}}</a>

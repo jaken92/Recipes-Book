@@ -40,17 +40,11 @@ class AddIngredientToDbController extends Controller
             } else if ($ingredient->name == $newIngredient['new-ingredient']) {
 
                 return back()->withErrors("Ingredient already exists, check the dropdown menu.");
-                // return view('addRecipe');
-                // // return redirect('addRecipe');
             }
 
             return back();
-            // return view('addRecipe');
-            // // return redirect('addRecipe');
         }
 
         return redirect('/');
-        // return view('addRecipe');
-        // // return redirect('addRecipe');
     }
 }

@@ -9,5 +9,6 @@
     <label for="">Enter password</label>
     <input name="" type="text">
 
+    <input type="hidden" name="_token" value="{{ csrf_token() }}" />
 </form>
 <a href="/">Go back</a>

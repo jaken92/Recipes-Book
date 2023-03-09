@@ -33,10 +33,6 @@ class DashboardController extends Controller
             $recipeList = DB::table('recipes')->select('*')
                 ->get();
 
-            /*  foreach ($recipeList as $key => $value) {
-                echo $value->title;
-            } */
-
             /* echo $recipe->id;
                 echo $recipe->title;
                 echo $recipe->instructions;
@@ -45,11 +41,6 @@ class DashboardController extends Controller
                 echo $recipe->name;
                 echo $recipe->amount;
                 echo $recipe->unit; */
-
-            /* echo "recipe id: " . $recipe->recipe_id . " recipe title: " . $recipe->title . " recipe instructions: " . $recipe->instructions . " recipe category: " . $recipe->category_id . " ingredient id: " . $recipe->ingredient_id . " ingredient name: " . $recipe->name . " amount: " . $recipe->amount . $recipe->unit . " unit: ";
-                echo "<br>"; */
-            // echo $recipe->user_id;
-            // }
 
             return view('dashboard')->with('recipes', $recipeList);
         }

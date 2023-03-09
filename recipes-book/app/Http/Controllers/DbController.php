@@ -58,7 +58,7 @@ class DbController extends Controller
         //         "updated_at" => date('Y-m-d H:i:s', strtotime("+1 hours")),
         //     ]);
 
-        DB::table('categories')
+        /* DB::table('categories')
             ->insert([
                 'name' => 'soppa',
                 "created_at" =>  date('Y-m-d H:i:s', strtotime("+1 hours")),
@@ -91,8 +91,7 @@ class DbController extends Controller
                 'name' => 'friterat',
                 "created_at" =>  date('Y-m-d H:i:s', strtotime("+1 hours")),
                 "updated_at" => date('Y-m-d H:i:s', strtotime("+1 hours")),
-            ]);
-
+            ]); */
         // DB::table('ingredients')->delete();
 
         /* $max = DB::table('ingredients')->max('id') + 1;
