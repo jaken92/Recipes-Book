@@ -42,10 +42,10 @@ Route::post('addIngredientToDb', AddIngredientToDbController::class);
 
 Route::post('addRecipeToDb', AddRecipeToDbController::class);
 
-Route::get('/{recipe}', [RecipeController::class, 'show']);
-
 Route::post('logout', LogoutController::class);
 
 Route::view('register', 'registerUser')->name('registerUser');
 
 Route::post('saveUser', RegisterUserController::class);
+
+Route::get('{recipe}', [RecipeController::class, 'show']);
