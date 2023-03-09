@@ -12,6 +12,9 @@
     <button type="submit">sumbit</button>
     <input type="hidden" name="_token" value="{{ csrf_token() }}" />
 </form>
+@if(\Session::has('success'))
+    <p>{!! \Session::get('success') !!}</p>
+@endif
 <a href="/">Go back</a>
 
 @include("errors")
