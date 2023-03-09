@@ -15,23 +15,25 @@ class DashboardController extends Controller
      */
     public function __invoke(Request $request)
     {
+
+        $categories = DB::table('categories')->get();
+        $ingredients = DB::table('ingredients')->get();
+        $recipes = DB::table('recipes')->get();
+        $recipeIngredients = DB::table('recipe_ingredients')->get();
+        $users = DB::table('users')->select('id', 'name')->get();
+
+        $recipes = DB::table('recipe_ingredients')->select('*')
+            ->join('recipes', 'recipes.id', '=', 'recipe_ingredients.recipe_id')
+            ->join('ingredients', 'ingredients.id', '=', 'recipe_ingredients.ingredient_id')
+            ->get();
+
+        $recipeList = DB::table('recipes')->select('*')
+            ->get();
+
         if (Auth::check()) {
             $user = Auth::user();
             $user = $request->user();
 
-            $categories = DB::table('categories')->get();
-            $ingredients = DB::table('ingredients')->get();
-            $recipes = DB::table('recipes')->get();
-            $recipeIngredients = DB::table('recipe_ingredients')->get();
-            $users = DB::table('users')->select('id', 'name')->get();
-
-            $recipes = DB::table('recipe_ingredients')->select('*')
-                ->join('recipes', 'recipes.id', '=', 'recipe_ingredients.recipe_id')
-                ->join('ingredients', 'ingredients.id', '=', 'recipe_ingredients.ingredient_id')
-                ->get();
-
-            $recipeList = DB::table('recipes')->select('*')
-                ->get();
 
             /* echo $recipe->id;
                 echo $recipe->title;
@@ -45,6 +47,6 @@ class DashboardController extends Controller
             return view('dashboard')->with('recipes', $recipeList);
         }
 
-        return redirect('/');
+        return view('dashboard')->with('recipes', $recipeList);
     }
 }

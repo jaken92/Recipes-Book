@@ -16,14 +16,6 @@ class LoginController extends Controller
         Auth::logout();
         return redirect('/');
     }
-    //     public function logout(Request $request)
-    // {
-    //     $this->guard()->logout();
-
-    //     $request->session()->invalidate();
-
-    //     return $this->loggedOut($request) ?: redirect('/login');
-    // }
 
     public function __invoke(Request $request)
     {
@@ -36,6 +28,6 @@ class LoginController extends Controller
             return redirect()->intended("dashboard");
         }
 
-        return back()->withErrors("Woops! Please try login again");
+        return back()->withErrors("Woops! Please try to login again");
     }
 }

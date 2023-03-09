@@ -26,11 +26,11 @@ use App\Http\Controllers\RegisterUserController;
 
 Route::view('/', 'index')->name('login')->middleware("guest");
 
-Route::get('dashboard', DashboardController::class)->middleware('auth');
+Route::get('dashboard', DashboardController::class);
 
 Route::post('login', LoginController::class);
 
-Route::get('guest', GuestController::class);
+// Route::get('guest', GuestController::class);
 
 Route::get('recipe', RecipeController::class);
 

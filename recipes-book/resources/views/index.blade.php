@@ -12,4 +12,8 @@
 </form>
 
 <a href="register">Register User</a>
-<a href="guest">Continue as guest</a>
+<a href="dashboard">Continue as guest</a>
+<form method="get" action="dashboard">
+    <button type="submit">Continye as gueesst</button>
+    <input type="hidden" name="_token" value="{{ csrf_token() }}" />
+</form>
