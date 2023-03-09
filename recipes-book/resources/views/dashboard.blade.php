@@ -8,7 +8,7 @@
 
 @auth
 <a href="addRecipe">Go to add reciepe</a>
-@endauth
+
 <div></div>
 <form action="logout" method="post">
 
@@ -16,3 +16,7 @@
 
     <input type="hidden" name="_token" value="{{ csrf_token() }}" />
 </form>
+@endauth
+@guest
+    <a href="/">Log in</a>
+@endguest
