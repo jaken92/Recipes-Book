@@ -3,8 +3,8 @@
     <label for="email">Enter email</label>
     <input name="email" type="text">
 
-    <label for="username">Enter username</label>
-    <input name="username" type="text">
+    <label for="name">Enter username</label>
+    <input name="name" type="text">
 
     <label for="">Enter password</label>
     <input name="password" type="text">
