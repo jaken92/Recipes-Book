@@ -7,8 +7,12 @@
     <input name="username" type="text">
 
     <label for="">Enter password</label>
-    <input name="" type="text">
+    <input name="password" type="text">
 
     <input type="hidden" name="_token" value="{{ csrf_token() }}" />
+
+    <button type="submit">sumbit</button>
 </form>
 <a href="/">Go back</a>
+
+@include("errors")
