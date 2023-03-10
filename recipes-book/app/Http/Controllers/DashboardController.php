@@ -34,17 +34,7 @@ class DashboardController extends Controller
             ->join('recipes', 'recipes.category_id', '=', 'categories.id')
             ->get();
 
-        if (isset($_POST['category'])) {
-            $chosenCategory = $request->only(['category']);
 
-            $filteredRecipes = DB::table('categories')
-                ->select('*')
-                ->where('categories.id', '=', $chosenCategory['category'])
-                ->join('recipes', 'recipes.category_id', '=', 'categories.id')
-                ->get();
-
-            return view('dashboard')->with('recipes', $filteredRecipes)->with('categories', $categories);
-        }
 
 
         /* echo $recipe->id;
@@ -64,5 +54,23 @@ class DashboardController extends Controller
         }
 
         return view('dashboard')->with('recipes', $recipeList)->with('categories', $categories);
+    }
+
+    public function filter(Request $request)
+    {
+
+        if (isset($_POST['category'])) {
+            $chosenCategory = $request->only(['category']);
+
+            $categories = DB::table('categories')->get();
+
+            $filteredRecipes = DB::table('categories')
+                ->select('*')
+                ->where('categories.id', '=', $chosenCategory['category'])
+                ->join('recipes', 'recipes.category_id', '=', 'categories.id')
+                ->get();
+
+            return view('dashboard')->with('recipes', $filteredRecipes)->with('categories', $categories);
+        }
     }
 }
