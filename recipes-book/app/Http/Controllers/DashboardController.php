@@ -30,12 +30,20 @@ class DashboardController extends Controller
         $recipeList = DB::table('recipes')->select('*')
             ->get();
 
-        if (Auth::check()) {
-            $user = Auth::user();
-            $user = $request->user();
+        if (isset($_POST['category'])) {
+            $chosenCategory = $request->only(['category']);
+
+            $filteredRecipes = DB::table('categories')
+                ->select('*')
+                ->where('categories.id', '=', $chosenCategory['category'])
+                ->join('recipes', 'recipes.category_id', '=', 'categories.id')
+                ->get();
+
+            return view('dashboard')->with('recipes', $filteredRecipes)->with('categories', $categories);
+        }
 
 
-            /* echo $recipe->id;
+        /* echo $recipe->id;
                 echo $recipe->title;
                 echo $recipe->instructions;
                 echo $recipe->category_id;
@@ -43,6 +51,10 @@ class DashboardController extends Controller
                 echo $recipe->name;
                 echo $recipe->amount;
                 echo $recipe->unit; */
+
+        if (Auth::check()) {
+            $user = Auth::user();
+            $user = $request->user();
 
             return view('dashboard')->with('recipes', $recipeList)->with('categories', $categories);
         }
