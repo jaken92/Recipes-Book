@@ -48,4 +48,4 @@ Route::post('saveUser', RegisterUserController::class);
 
 Route::get('recipe/{recipe}', [RecipeController::class, 'show']);
 
-Route::post('dashboard/filter', [DashboardController::class, 'filter'])->name('filter');
+Route::post('dashboard', [DashboardController::class, 'filter'])->name('dashboard');

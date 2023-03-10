@@ -2,7 +2,7 @@
 
 ?>
 
-<form action="filter" method="post">
+<form action="dashboard" method="post">
     <label for="category">Välj kategori att filtrera</label>
     <select name="category">
         @foreach ($categories as $category)
@@ -22,7 +22,7 @@
 <a href="dashboard">Reset</a>
 
 @foreach ($recipes as $recipe)
-<a href="/recipe/{{$recipe->id}}" data-recipeId="{{$recipe->id}}" id="{{$recipe->id}}" style="display: block;">{{$recipe->title}}</a>
+<a href="/recipe/{{$recipe->id}}" value="{{$recipe->title}}" style="display: block;">{{$recipe->title}}</a>
 @endforeach
 
 @auth
