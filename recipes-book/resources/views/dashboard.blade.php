@@ -2,7 +2,7 @@
 
 ?>
 
-<form action="dashboard" method="post">
+<form action="filter" method="post">
     <label for="category">Välj kategori att filtrera</label>
     <select name="category">
         @foreach ($categories as $category)
