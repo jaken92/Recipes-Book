@@ -28,6 +28,8 @@ Route::view('/', 'index')->name('login')->middleware("guest");
 
 Route::get('dashboard', DashboardController::class);
 
+Route::post('dashboard', DashboardController::class);
+
 Route::post('login', LoginController::class);
 
 // Route::get('guest', GuestController::class);
