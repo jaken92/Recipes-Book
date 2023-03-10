@@ -32,10 +32,6 @@ Route::post('dashboard', DashboardController::class);
 
 Route::post('login', LoginController::class);
 
-// Route::get('guest', GuestController::class);
-
-// Route::get('recipe', RecipeController::class);
-
 Route::get('addRecipe', AddRecipeController::class)->middleware('auth');
 
 Route::get('db', DbController::class);
