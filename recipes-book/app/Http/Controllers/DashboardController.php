@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use App\Models\Recipe;
 
 class DashboardController extends Controller
 {
@@ -43,7 +44,7 @@ class DashboardController extends Controller
         return view('dashboard')->with('recipes', $recipeList)->with('categories', $categories)->with('ingredients', $ingredients);
     }
 
-    public function filter(Request $request)
+    public function filter(Request $request, Recipe $category)
     {
 
         $ingredients = $request->only(['remove-ingredient']);
@@ -61,7 +62,7 @@ class DashboardController extends Controller
                 ->join('recipes', 'recipes.category_id', '=', 'categories.id')
                 ->get();
 
-            return view('dashboard')->with('recipes', $filteredRecipes)->with('categories', $categories)->with('ingredients', $ingredients);
+            return view('/dashboard')->with('recipes', $filteredRecipes)->with('categories', $categories)->with('ingredients', $ingredients);
         }
     }
 }

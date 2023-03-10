@@ -26,7 +26,7 @@ class LoginController extends Controller
 
             $request->session()->regenerate();
 
-            return Redirect::to('dashboard');
+            return Redirect::to('/dashboard');
         }
 
         return back()->withErrors("Woops! Please try to login again");
