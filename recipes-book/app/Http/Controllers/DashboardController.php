@@ -16,8 +16,10 @@ class DashboardController extends Controller
     public function __invoke(Request $request)
     {
 
+        $ingredients = $request->only(['remove-ingredient']);
+
         $categories = DB::table('categories')->get();
-        $ingredients = DB::table('ingredients')->get();
+        $ingredients = DB::table('ingredients')->select('*')->get();
         $recipes = DB::table('recipes')->get();
         $recipeIngredients = DB::table('recipe_ingredients')->get();
         $users = DB::table('users')->select('id', 'name')->get();
@@ -33,6 +35,11 @@ class DashboardController extends Controller
         $recipeCategory = DB::table('categories')->select('*')
             ->join('recipes', 'recipes.category_id', '=', 'categories.id')
             ->get();
+
+        if (isset($_POST['remove-ingredient'])) {
+            var_dump($_POST['remove-ingredient']);
+            die();
+        }
 
         if (isset($_POST['category'])) {
             $chosenCategory = $request->only(['category']);
@@ -60,9 +67,9 @@ class DashboardController extends Controller
             $user = Auth::user();
             $user = $request->user();
 
-            return view('dashboard')->with('recipes', $recipeList)->with('categories', $categories);
+            return view('dashboard')->with('recipes', $recipeList)->with('categories', $categories)->with('ingredients', $ingredients);
         }
 
-        return view('dashboard')->with('recipes', $recipeList)->with('categories', $categories);
+        return view('dashboard')->with('recipes', $recipeList)->with('categories', $categories)->with('ingredients', $ingredients);
     }
 }
