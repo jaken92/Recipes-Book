@@ -61,7 +61,7 @@ class DashboardController extends Controller
                 ->join('recipes', 'recipes.category_id', '=', 'categories.id')
                 ->get();
 
-            return view('dashboard')->with('recipes', $filteredRecipes)->with('categories', $categories)->with('ingredients', $ingredients);
+            return view('/dashboard')->with('recipes', $filteredRecipes)->with('categories', $categories)->with('ingredients', $ingredients);
         }
     }
 }
