@@ -48,9 +48,9 @@ class DashboardController extends Controller
                 echo $recipe->amount;
                 echo $recipe->unit; */
 
-            return view('dashboard')->with('recipes', $recipeList);
+            return view('dashboard')->with('recipes', $recipeList)->with('categories', $categories);
         }
 
-        return view('dashboard')->with('recipes', $recipeList);
+        return view('dashboard')->with('recipes', $recipeList)->with('categories', $categories);
     }
 }
