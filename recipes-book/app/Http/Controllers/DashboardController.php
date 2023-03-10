@@ -15,9 +15,6 @@ class DashboardController extends Controller
      */
     public function __invoke(Request $request)
     {
-
-        $ingredients = $request->only(['remove-ingredient']);
-
         $categories = DB::table('categories')->get();
         $ingredients = DB::table('ingredients')->select('*')->get();
         $recipes = DB::table('recipes')->get();
@@ -36,40 +33,24 @@ class DashboardController extends Controller
             ->join('recipes', 'recipes.category_id', '=', 'categories.id')
             ->get();
 
-        if (isset($_POST['remove-ingredient'])) {
-            var_dump($_POST['remove-ingredient']);
-            die();
-        }
-
-        if (isset($_POST['category'])) {
-            $chosenCategory = $request->only(['category']);
-
-
-
-            /* echo $recipe->id;
-                echo $recipe->title;
-                echo $recipe->instructions;
-                echo $recipe->category_id;
-                echo $recipe->ingredient_id;
-                echo $recipe->name;
-                echo $recipe->amount;
-                echo $recipe->unit; */
-
-            if (Auth::check()) {
-                $user = Auth::user();
-                $user = $request->user();
-
-                return view('dashboard')->with('recipes', $recipeList)->with('categories', $categories)->with('ingredients', $ingredients);
-            }
+        if (Auth::check()) {
+            $user = Auth::user();
+            $user = $request->user();
 
             return view('dashboard')->with('recipes', $recipeList)->with('categories', $categories)->with('ingredients', $ingredients);
         }
+
+        return view('dashboard')->with('recipes', $recipeList)->with('categories', $categories)->with('ingredients', $ingredients);
     }
 
     public function filter(Request $request)
     {
 
+        $ingredients = $request->only(['remove-ingredient']);
+        $ingredients = DB::table('ingredients')->select('*')->get();
+
         if (isset($_POST['category'])) {
+            // $ingredients = $request->only(['remove-ingredient']);
             $chosenCategory = $request->only(['category']);
 
             $categories = DB::table('categories')->get();
@@ -80,7 +61,7 @@ class DashboardController extends Controller
                 ->join('recipes', 'recipes.category_id', '=', 'categories.id')
                 ->get();
 
-            return view('dashboard')->with('recipes', $filteredRecipes)->with('categories', $categories);
+            return view('dashboard')->with('recipes', $filteredRecipes)->with('categories', $categories)->with('ingredients', $ingredients);
         }
     }
 }

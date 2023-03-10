@@ -12,8 +12,8 @@
     <button type="submit">Submit</button>
     <div>
         @foreach ($ingredients as $ingredient)
-        <label for="checkbox">{{$ingredient->name}}</label>
         <input type="checkbox" name="remove-ingredient[]" value="{{$ingredient->name}}">
+        <label for="checkbox">{{$ingredient->name}}</label>
         @endforeach
     </div>
     <input type="hidden" name="_token" value="{{ csrf_token() }}" />
@@ -22,7 +22,7 @@
 <a href="dashboard">Reset</a>
 
 @foreach ($recipes as $recipe)
-<a href="{{$recipe->id}}" data-recipeId="{{$recipe->id}}" id="{{$recipe->id}}" style="display: block;">{{$recipe->title}}</a>
+<a href="/recipe/{{$recipe->id}}" data-recipeId="{{$recipe->id}}" id="{{$recipe->id}}" style="display: block;">{{$recipe->title}}</a>
 @endforeach
 
 @auth
