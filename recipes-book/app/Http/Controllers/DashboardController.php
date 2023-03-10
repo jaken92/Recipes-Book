@@ -29,6 +29,10 @@ class DashboardController extends Controller
 
         $recipeList = DB::table('recipes')->select('*')
             ->get();
+        //getting recipes and category id
+        $recipeCategory = DB::table('categories')->select('*')
+            ->join('recipes', 'recipes.category_id', '=', 'categories.id')
+            ->get();
 
         if (Auth::check()) {
             $user = Auth::user();
