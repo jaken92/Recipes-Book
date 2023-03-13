@@ -2,7 +2,7 @@
 
 ?>
 
-<form action="dashboard" method="post">
+<form action="home" method="post">
     <label for="category">Välj kategori att filtrera</label>
     <select name="category">
         @foreach ($categories as $category)
@@ -19,7 +19,7 @@
     <input type="hidden" name="_token" value="{{ csrf_token() }}" />
 </form>
 
-<a href="dashboard">Reset</a>
+<a href="home">Reset</a>
 
 @foreach ($recipes as $recipe)
 <a href="/recipe/{{$recipe->id}}" value="{{$recipe->title}}" style="display: block;">{{$recipe->title}}</a>

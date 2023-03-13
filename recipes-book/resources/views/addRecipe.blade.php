@@ -62,7 +62,7 @@ use App\Models\Category;
         <button type="submit">Create Ingredient</button>
         <input type="hidden" name="_token" value="{{ csrf_token() }}" />
     </form>
-    <a href="dashboard">go back</a>
+    <a href="home">go back</a>
     <script src="/addRecipe.js">
     </script>
 </body>

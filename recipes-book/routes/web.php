@@ -26,9 +26,9 @@ use App\Http\Controllers\RegisterUserController;
 
 Route::view('/', 'index')->name('login')->middleware("guest");
 
-Route::get('dashboard', DashboardController::class);
+Route::get('home', DashboardController::class);
 
-Route::post('dashboard', DashboardController::class);
+Route::post('home', DashboardController::class);
 
 Route::post('login', LoginController::class);
 
@@ -46,7 +46,7 @@ Route::post('saveUser', RegisterUserController::class);
 
 Route::get('recipe/{recipe}', [RecipeController::class, 'show']);
 
-Route::post('dashboard', [DashboardController::class, 'filter'])->name('dashboard');
+Route::post('home', [DashboardController::class, 'filter'])->name('recipes');
 
 //Route::post('dashboard/{category}', [DashboardController::class, 'filter']);
 

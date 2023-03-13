@@ -30,10 +30,10 @@ class DashboardController extends Controller
             $user = Auth::user();
             $user = $request->user();
 
-            return view('dashboard')->with('recipes', $recipeList)->with('categories', $categories)->with('ingredients', $ingredients);
+            return view('home')->with('recipes', $recipeList)->with('categories', $categories)->with('ingredients', $ingredients);
         }
 
-        return view('dashboard')->with('recipes', $recipeList)->with('categories', $categories)->with('ingredients', $ingredients);
+        return view('home')->with('recipes', $recipeList)->with('categories', $categories)->with('ingredients', $ingredients);
     }
 
     public function filter(Request $request, Recipe $category)
@@ -62,7 +62,7 @@ class DashboardController extends Controller
                 ->join('recipes', 'recipes.category_id', '=', 'categories.id')
                 ->get();
 
-            return view('/dashboard')->with('recipes', $filteredRecipes)->with('categories', $categories)->with('ingredients', $ingredients);
+            return view('/home')->with('recipes', $filteredRecipes)->with('categories', $categories)->with('ingredients', $ingredients);
         }
 
         if (isset($_POST['remove-ingredient'])) {
