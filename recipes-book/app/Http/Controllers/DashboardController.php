@@ -8,6 +8,8 @@ use Illuminate\Support\Facades\DB;
 use App\Models\Recipe;
 use App\Models\Category;
 use App\Models\Ingredient;
+use App\Models\Recipe_ingredient;
+use Illuminate\Support\Collection;
 
 class DashboardController extends Controller
 {
@@ -38,22 +40,42 @@ class DashboardController extends Controller
 
     public function filter(Request $request, Recipe $category)
     {
-
-        $ingredients = $request->only(['remove-ingredient']);
+        $chosenCategory = $request->only(['category']);
+        $removedIngredients = $request->only(['remove-ingredient']);
 
         $ingredients = DB::table('ingredients')
             ->select('*')
             ->orderBy('name')
             ->get();
 
-        if (isset($_POST['category'])) {
-            // $ingredients = $request->only(['remove-ingredient']);
-            $chosenCategory = $request->only(['category']);
+        $categories = DB::table('categories')
+            ->select('*')
+            ->orderBy('name')
+            ->get();
 
-            $categories = DB::table('categories')
-                ->select('*')
-                ->orderBy('name')
+        if (isset($_POST['remove-ingredient']) && isset($_POST['category'])) {
+
+            $recipeIds = DB::table('recipe_ingredients')
+                ->select('recipe_id')
+                ->whereIn('recipe_ingredients.ingredient_id', $removedIngredients['remove-ingredient'])
                 ->get();
+
+            //putting property recipe_id into array to enable usage of "whereNotIn" function.
+            foreach ($recipeIds as $recipeId) {
+                $unwantedIds[] = $recipeId->recipe_id;
+            }
+
+            $filteredRecipes = DB::table('recipes')
+                ->select('*')
+                ->where('recipes.category_id', '=', $chosenCategory['category'])
+                ->whereNotIn('recipes.id', $unwantedIds)
+                ->get();
+
+
+            return view('/home')->with('recipes', $filteredRecipes)->with('categories', $categories)->with('ingredients', $ingredients);
+        }
+
+        if (isset($_POST['category'])) {
 
             $filteredRecipes = DB::table('categories')
                 ->select('*')
@@ -63,9 +85,6 @@ class DashboardController extends Controller
                 ->get();
 
             return view('/home')->with('recipes', $filteredRecipes)->with('categories', $categories)->with('ingredients', $ingredients);
-        }
-
-        if (isset($_POST['remove-ingredient'])) {
         }
     }
 }

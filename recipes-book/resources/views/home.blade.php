@@ -12,7 +12,7 @@
     <button type="submit">Submit</button>
     <div>
         @foreach ($ingredients as $ingredient)
-        <input type="checkbox" name="remove-ingredient[]" value="{{$ingredient->name}}">
+        <input type="checkbox" name="remove-ingredient[]" value="{{$ingredient->id}}">
         <label for="checkbox">{{$ingredient->name}}</label>
         @endforeach
     </div>
