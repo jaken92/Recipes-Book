@@ -34,8 +34,6 @@ Route::post('login', LoginController::class);
 
 Route::get('addRecipe', AddRecipeController::class)->middleware('auth');
 
-// Route::get('db', DbController::class);
-
 Route::post('addIngredientToDb', AddIngredientToDbController::class);
 
 Route::post('addRecipeToDb', AddRecipeToDbController::class);
