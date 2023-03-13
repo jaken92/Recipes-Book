@@ -17,6 +17,13 @@ class AddIngredientToDbController extends Controller
      */
     public function __invoke(Request $request)
     {
+        /* DB::table('categories')
+            ->insert([
+                'name' => 'soppa',
+                "created_at" =>  date('Y-m-d H:i:s', strtotime("+1 hours")),
+                "updated_at" => date('Y-m-d H:i:s', strtotime("+1 hours")),
+            ]);*/
+
         $this->validate($request, [
             'new-ingredient' => 'required|string|min:2'
         ]);
