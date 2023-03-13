@@ -29,20 +29,6 @@ class RegisterUserController extends Controller
 
         $newUser = User::where('email', $email['email'])->first();
 
-
-        // $newUser = User::create(request(['name', 'email', 'password']));
-
-        // $newUser = User::firstOrCreate(
-        //     ['email' => $email['email']],
-        //     [
-        //         'name' => $name['name'],
-        //         'email' => $email['email'],
-        //         'password' => Hash::make($password['password']),
-        //     ]
-        // );
-
-
-
         if (is_null($newUser)) {
 
             $newUser = DB::table('users')->insert(

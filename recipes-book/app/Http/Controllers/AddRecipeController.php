@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Category;
+use App\Models\Ingredient;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
@@ -17,9 +19,12 @@ class AddRecipeController extends Controller
             $user = Auth::user();
             $user = $request->user();
 
-            $categories = DB::table('categories')->get();
+            // $categories = DB::table('categories')->orderBy('name')->get();
+            // $ingredients = DB::table('ingredients')->orderBy('name')->get();
 
-            $ingredients = DB::table('ingredients')->get();
+            $categories = Category::orderBy('name')->get();
+            $ingredients = Ingredient::orderBy('name')->get();
+
 
             return view('addRecipe')->with('ingredients', $ingredients)->with('categories', $categories);
         }

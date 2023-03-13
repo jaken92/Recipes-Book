@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use App\Models\Recipe;
+use App\Models\Category;
+use App\Models\Ingredient;
 
 class DashboardController extends Controller
 {
@@ -16,22 +18,12 @@ class DashboardController extends Controller
      */
     public function __invoke(Request $request)
     {
-        $categories = DB::table('categories')->get();
-        $ingredients = DB::table('ingredients')->select('*')->get();
-        $recipes = DB::table('recipes')->get();
-        $recipeIngredients = DB::table('recipe_ingredients')->get();
-        $users = DB::table('users')->select('id', 'name')->get();
+        $categories = Category::orderBy('name')->get();
+        $ingredients = Ingredient::orderBy('name')->get();
 
-        $recipes = DB::table('recipe_ingredients')->select('*')
-            ->join('recipes', 'recipes.id', '=', 'recipe_ingredients.recipe_id')
-            ->join('ingredients', 'ingredients.id', '=', 'recipe_ingredients.ingredient_id')
-            ->get();
-
-        $recipeList = DB::table('recipes')->select('*')
-            ->get();
-        //getting recipes and category id
-        $recipeCategory = DB::table('categories')->select('*')
-            ->join('recipes', 'recipes.category_id', '=', 'categories.id')
+        $recipeList = DB::table('recipes')
+            ->select('*')
+            ->orderBy('title')
             ->get();
 
         if (Auth::check()) {
@@ -48,16 +40,24 @@ class DashboardController extends Controller
     {
 
         $ingredients = $request->only(['remove-ingredient']);
-        $ingredients = DB::table('ingredients')->select('*')->get();
+
+        $ingredients = DB::table('ingredients')
+            ->select('*')
+            ->orderBy('name')
+            ->get();
 
         if (isset($_POST['category'])) {
             // $ingredients = $request->only(['remove-ingredient']);
             $chosenCategory = $request->only(['category']);
 
-            $categories = DB::table('categories')->get();
+            $categories = DB::table('categories')
+                ->select('*')
+                ->orderBy('name')
+                ->get();
 
             $filteredRecipes = DB::table('categories')
                 ->select('*')
+                ->orderBy('title')
                 ->where('categories.id', '=', $chosenCategory['category'])
                 ->join('recipes', 'recipes.category_id', '=', 'categories.id')
                 ->get();
