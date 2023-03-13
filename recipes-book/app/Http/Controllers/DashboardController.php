@@ -64,5 +64,8 @@ class DashboardController extends Controller
 
             return view('/dashboard')->with('recipes', $filteredRecipes)->with('categories', $categories)->with('ingredients', $ingredients);
         }
+
+        if (isset($_POST['remove-ingredient'])) {
+        }
     }
 }

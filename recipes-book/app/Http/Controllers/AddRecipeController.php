@@ -19,12 +19,8 @@ class AddRecipeController extends Controller
             $user = Auth::user();
             $user = $request->user();
 
-            // $categories = DB::table('categories')->orderBy('name')->get();
-            // $ingredients = DB::table('ingredients')->orderBy('name')->get();
-
             $categories = Category::orderBy('name')->get();
             $ingredients = Ingredient::orderBy('name')->get();
-
 
             return view('addRecipe')->with('ingredients', $ingredients)->with('categories', $categories);
         }
