@@ -26,7 +26,7 @@
 @endforeach
 
 @auth
-<a href="addRecipe">Go to add reciepe</a>
+<a href="addRecipe">Go to add recipe</a>
 
 <div></div>
 <form action="logout" method="post">
