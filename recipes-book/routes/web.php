@@ -49,3 +49,12 @@ Route::post('saveUser', RegisterUserController::class);
 Route::get('recipe/{recipe}', [RecipeController::class, 'show']);
 
 Route::post('dashboard', [DashboardController::class, 'filter'])->name('dashboard');
+
+//Route::post('dashboard/{category}', [DashboardController::class, 'filter']);
+
+// Route::post('dashboard/filter', function () {
+//     return redirect('filter');
+//     // return Redirect::to([DashboardController::class, 'filter']);
+//     // return redirect([DashboardController::class, 'filter']);
+//     // return redirect()->action([DashboardController::class, 'filter']);
+// });
