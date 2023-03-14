@@ -1,6 +1,6 @@
-
 <!doctype html>
 <link rel="stylesheet" href="/app.css">
+
 <body>
     <div class="hero-container">
         <img class="hero" src="/images/hero.jpg" alt="">
@@ -18,13 +18,9 @@
         <button type="submit">Login</button>
         <input type="hidden" name="_token" value="{{ csrf_token() }}" />
     </form>
-    
-    <a href="register">Register User</a>
-    <a href="home">Continue as guest</a>
-    <form method="get" action="recipes">
-        <button type="submit">Continye as gueesst</button>
-        <input type="hidden" name="_token" value="{{ csrf_token() }}" />
-    </form>
+
+    <a href="register" class="login-button">Register User</a>
+    <a href="home" class="login-button">Continue as guest</a>
 </body>
 
 

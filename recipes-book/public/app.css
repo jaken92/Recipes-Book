@@ -20,11 +20,14 @@ body {
 
 a {
     color: var(--white);
+    text-decoration: none;
 }
 
 button,
 input[type="submit"],
-input[type="reset"] {
+input[type="reset"],
+.login-button,
+.reset-btn {
     background: var(--raisinBlack);
     border: 2px solid var(--orange);
     color: var(--orange);
@@ -35,7 +38,9 @@ input[type="reset"] {
     outline: inherit;
 }
 
-button:hover {
+button:hover,
+.login-button:hover,
+.reset-btn:hover {
     background: var(--orange);
     border: 2px solid var(--raisinBlack);
     color: var(--raisinBlack);

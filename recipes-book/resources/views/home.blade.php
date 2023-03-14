@@ -1,7 +1,7 @@
-
 <!doctype html>
 <link rel="stylesheet" href="/home.css">
 <link rel="stylesheet" href="/app.css">
+
 <body>
     <div class="hero-container">
         <img class="hero" src="/images/hero.jpg" alt="">
@@ -28,14 +28,14 @@
     <button class="show-checkboxes">Filter by ingredients</button>
 
 
-    <a href="home">Reset</a>
+    <a href="home" class="reset-btn hidden" type="btn">Reset</a>
 
     @foreach ($recipes as $recipe)
     <a href="/recipe/{{$recipe->id}}" value="{{$recipe->title}}">{{$recipe->title}}</a>
     @endforeach
 
     @auth
-    <a href="addRecipe">Go to add recipe</a>
+    <a href="addRecipe" class="login-button" type="btn">Go to add recipe</a>
 
     <div></div>
     <form action="logout" method="post">
@@ -46,7 +46,7 @@
     </form>
     @endauth
     @guest
-    <a href="/">Log in</a>
+    <a href="/" class="login-button" type="btn">Login</a>
     @endguest
     <script src="home.js">
     </script>
