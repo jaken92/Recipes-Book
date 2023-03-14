@@ -37,6 +37,7 @@ input[type="reset"],
     cursor: pointer;
     outline: inherit;
     font-weight: 600;
+    transition: 0.3s;
 }
 
 button:hover,
@@ -65,4 +66,43 @@ button:active {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+}
+
+.recipes-list {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+select {
+    height: 25px;
+    font-weight: 600;
+    font: inherit;
+    border-radius: 5px;
+}
+
+.recipe-card {
+    display: flex;
+    flex-grow: 1;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+h2 {
+    margin: 10px 0 10px 0;
+    font-size: 2rem;
+}
+h3 {
+    margin: 5px 0 5px 0;
+    font-size: 1rem;
+}
+h4 {
+    margin: 5px 0 5px 0;
+    font-size: 1.3rem;
+}
+
+.author {
+    margin-top: 20px;
+    font-size: 1rem;
 }

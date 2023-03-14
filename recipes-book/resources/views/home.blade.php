@@ -30,9 +30,11 @@
 
     <a href="home" class="reset-btn hidden" type="btn">Reset</a>
 
-    @foreach ($recipes as $recipe)
-    <a href="/recipe/{{$recipe->id}}" value="{{$recipe->title}}">{{$recipe->title}}</a>
-    @endforeach
+    <section class="recipes-list">
+        @foreach ($recipes as $recipe)
+        <a href="/recipe/{{$recipe->id}}" value="{{$recipe->title}}">{{$recipe->title}}</a>
+        @endforeach
+    </section>
 
     @auth
     <a href="addRecipe" class="login-button" type="btn">Go to add recipe</a>
