@@ -2,6 +2,7 @@
 
 namespace Tests\Feature;
 
+use App\Models\Ingredient;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
 use Tests\TestCase;
@@ -80,13 +81,13 @@ class RouteTest extends TestCase
     {
         $response = $this
             ->followingRedirects()
-            ->get('register', [
+            ->post('saveUser', [
                 'email' => 'rune@yrgo.se',
                 'name' => 'Rune',
                 'password' => '1234',
             ]);
 
-        // $response->assertSeeText('Your account was succesfully created!');
+        $response->assertSeeText('Your account was succesfully created!');
 
         $response->assertStatus(200);
     }
@@ -156,30 +157,81 @@ class RouteTest extends TestCase
         $response->assertSeeText('Login');
         $response->assertStatus(200);
     }
-    /* public function test_add_recipe_to_db(): void
+    public function test_add_recipe_to_db(): void
     {
         $user = new User();
         $user->name = 'Rune';
         $user->email = 'rune@yrgo.se';
-        $user->password = Hash::make('123');
+        $user->password = Hash::make('1234');
         $user->save();
 
-        $response = $this->actingAs($user)->get('addRecipe');
-        $response->assertSeeText('Create ingredient');
+        $ingredient = new Ingredient();
+        $ingredient->name = 'tomat';
+        $ingredient->save();
+
+        $ingredient = new Ingredient();
+        $ingredient->name = 'potatis';
+        $ingredient->save();
+
+        $response = $this
+            ->actingAs($user)
+            ->followingRedirects()
+            ->from('addRecipe')
+            ->post('/addRecipeToDb', [
+                'title' => 'tomat soppa',
+                'category' => 'soppa',
+                'ingredients' => ['tomat', 'potatis'],
+                'amount' => ['4', '8'],
+                'unit' => ['ml', 'hg'],
+                'instructions' => 'fbfbxbfxbfbfd',
+            ]);
+
+        $response->assertSeeText('Your recipe was succesfully created!');
 
         $response->assertStatus(200);
-    } */
-    /* public function test_add_ingredient_to_db(): void
+    }
+    public function test_add_ingredient_to_db(): void
     {
         $user = new User();
         $user->name = 'Rune';
         $user->email = 'rune@yrgo.se';
-        $user->password = Hash::make('123');
+        $user->password = Hash::make('1234');
         $user->save();
 
-        $response = $this->actingAs($user)->get('addRecipe');
-        $response->assertSeeText('Create ingredient');
+        $response = $this
+            ->actingAs($user)
+            ->followingRedirects()
+            ->from('addRecipe')
+            ->post('/addIngredientToDb', [
+                'new-ingredient' => 'sill',
+            ]);
+
+        $response->assertSeeText('Your ingredient was succesfully added!');
 
         $response->assertStatus(200);
-    } */
+    }
+    public function test_add_ingredient_to_db_fails(): void
+    {
+        $user = new User();
+        $user->name = 'Rune';
+        $user->email = 'rune@yrgo.se';
+        $user->password = Hash::make('1234');
+        $user->save();
+
+        $ingredient = new Ingredient();
+        $ingredient->name = 'tomat';
+        $ingredient->save();
+
+        $response = $this
+            ->actingAs($user)
+            ->followingRedirects()
+            ->from('addRecipe')
+            ->post('/addIngredientToDb', [
+                'new-ingredient' => 'tomat',
+            ]);
+
+        $response->assertSeeText('Ingredient already exists, check the dropdown menu.');
+
+        $response->assertStatus(200);
+    }
 }

@@ -3,6 +3,7 @@
 ?>
 <!doctype html>
 <link rel="stylesheet" href="/home.css">
+
 <body>
     <form action="home" method="post">
         <label for="category">Välj kategori att filtrera</label>
@@ -12,7 +13,7 @@
             @endforeach
         </select>
         <button type="submit">Submit</button>
-        
+
         <div class="checkboxes hidden">
             <p>Check off the ingredients you dont want to be included in your search:</p>
             @foreach ($ingredients as $ingredient)
@@ -23,12 +24,12 @@
         <input type="hidden" name="_token" value="{{ csrf_token() }}" />
     </form>
     <button class="show-checkboxes">Filter by ingredients</button>
-    
+
 
     <a href="home">Reset</a>
 
     @foreach ($recipes as $recipe)
-    <a href="/recipe/{{$recipe->id}}" value="{{$recipe->title}}" style="display: block;">{{$recipe->title}}</a>
+    <a href="/recipe/{{$recipe->id}}" value="{{$recipe->title}}">{{$recipe->title}}</a>
     @endforeach
 
     @auth
