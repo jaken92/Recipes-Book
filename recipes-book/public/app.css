@@ -27,7 +27,8 @@ button,
 input[type="submit"],
 input[type="reset"],
 .login-button,
-.reset-btn {
+.reset-btn,
+.go-back-button {
     background: var(--raisinBlack);
     border: 2px solid var(--orange);
     color: var(--orange);
@@ -42,7 +43,8 @@ input[type="reset"],
 
 button:hover,
 .login-button:hover,
-.reset-btn:hover {
+.reset-btn:hover,
+.go-back-button:hover {
     background: var(--orange);
     border: 2px solid var(--raisinBlack);
     color: var(--raisinBlack);
@@ -106,11 +108,24 @@ h3 {
     font-size: 1rem;
 }
 h4 {
-    margin: 5px 0 5px 0;
     font-size: 1.3rem;
+}
+.recipe-ingredients,
+.instructions {
+    margin: 15px 0 10px 0;
 }
 
 .author {
     margin-top: 20px;
     font-size: 1rem;
+}
+
+article {
+    margin-bottom: 50px;
+}
+
+.recipe-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
