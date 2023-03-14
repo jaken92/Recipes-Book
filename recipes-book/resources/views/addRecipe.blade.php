@@ -65,7 +65,7 @@ use App\Models\Category;
         <button type="submit">Create Ingredient</button>
         <input type="hidden" name="_token" value="{{ csrf_token() }}" />
     </form>
-    <a href="home">go back</a>
+    <a href="home" class="login-button" type="btn">go back</a>
     @if(\Session::has('success'))
     <p>{!! \Session::get('success') !!}</p>
     @endif
