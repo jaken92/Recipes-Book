@@ -28,10 +28,12 @@
     <button class="show-checkboxes block">Filter by ingredients</button>
     <a href="home" class="reset-btn hidden" type="btn">Reset</a>
 
-    <section class="recipes-list">
+    <section class="recipes-section">
+        <ul class="recipes-list">
         @foreach ($recipes as $recipe)
-        <a href="/recipe/{{$recipe->id}}" value="{{$recipe->title}}">{{$recipe->title}}</a>
+            <li><a href="/recipe/{{$recipe->id}}" value="{{$recipe->title}}">{{$recipe->title}}</a></li>
         @endforeach
+        </ul>
     </section>
 
     @auth

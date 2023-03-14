@@ -73,6 +73,14 @@ button:active {
     flex-direction: column;
     justify-content: center;
     align-items: flex-start;
+    gap: 20px;
+    list-style-type: none;
+    font-size: 30px;
+}
+
+.recipes-section {
+    display: flex;
+    justify-content: center;
 }
 
 select {
