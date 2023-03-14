@@ -77,7 +77,7 @@ class AddIngredientToDbController extends Controller
                 return back()->withErrors("Ingredient already exists, check the dropdown menu.");
             }
 
-            return back();
+            return back()->with('success', 'Your ingredient was succesfully added!');
         }
 
         return redirect('/');

@@ -66,6 +66,9 @@ use App\Models\Category;
         <input type="hidden" name="_token" value="{{ csrf_token() }}" />
     </form>
     <a href="home">go back</a>
+    @if(\Session::has('success'))
+    <p>{!! \Session::get('success') !!}</p>
+    @endif
     <script src="/addRecipe.js">
     </script>
 </body>

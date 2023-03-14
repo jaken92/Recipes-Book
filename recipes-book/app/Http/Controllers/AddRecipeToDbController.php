@@ -61,9 +61,9 @@ class AddRecipeToDbController extends Controller
                 );
             }
 
-            return back();
+            return back()->with('success', 'Your recipe was succesfully created!');
         }
 
-        return back()->withErrors("Receptet kunde inte läggas till");
+        return back()->withErrors("Your recipe was not created!");
     }
 }
