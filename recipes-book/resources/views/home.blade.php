@@ -1,9 +1,12 @@
-<?php echo "this is the homepage";
 
-?>
 <!doctype html>
 <link rel="stylesheet" href="/home.css">
+<link rel="stylesheet" href="/app.css">
 <body>
+    <div class="hero-container">
+        <img class="hero" src="/images/hero.jpg" alt="">
+        <h1 class="hero-text">Recipes Book</h1>
+    </div>
     <form action="home" method="post">
         <label for="category">Välj kategori att filtrera</label>
         <select name="category">

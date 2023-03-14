@@ -9,6 +9,10 @@ use App\Models\Category;
 <link rel="stylesheet" href="/app.css">
 
 <body>
+    <div class="hero-container">
+        <img class="hero" src="/images/hero.jpg" alt="">
+        <h1 class="hero-text">Recipes Book</h1>
+    </div>
     <form action="/addRecipeToDb" method="post">
         <label for="title">Input the name of your recipe</label>
         <input type="text" name="title">
@@ -38,7 +42,7 @@ use App\Models\Category;
                     <option value="ml">ml</option>
                     <option value="tbsp">tbsp</option>
                     <option value="tsp">tsp</option>
-                    <option value="PCs">PCs</option>
+                    <option value="pcs">pcs</option>
                 </select>
             </div>
         </div>

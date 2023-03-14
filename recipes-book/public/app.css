@@ -1,3 +1,62 @@
+:root {
+    --raisinBlack: #342e37;
+    --orange: #fa824c;
+    --grey: #6b818c;
+    --white: #ecf4f0;
+}
+* {
+    box-sizing: border-box;
+    margin: 0px;
+    padding: 0px;
+}
+
 body {
-    background-color: aqua;
+    background-color: var(--raisinBlack);
+    color: var(--white);
+    font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+        "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+    /* font-family: Verdana, Geneva, Tahoma, sans-serif; */
+}
+
+a {
+    color: var(--white);
+}
+
+button,
+input[type="submit"],
+input[type="reset"] {
+    background: var(--raisinBlack);
+    border: 2px solid var(--orange);
+    color: var(--orange);
+    border-radius: 5px;
+    padding: 10px;
+    font: inherit;
+    cursor: pointer;
+    outline: inherit;
+}
+
+button:hover {
+    background: var(--orange);
+    border: 2px solid var(--raisinBlack);
+    color: var(--raisinBlack);
+}
+
+button:active {
+    scale: 0.95;
+}
+.hero-container {
+    position: relative;
+}
+
+.hero {
+    height: 200px;
+    width: 100%;
+    object-fit: cover;
+}
+
+.hero-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
