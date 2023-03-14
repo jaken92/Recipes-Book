@@ -36,6 +36,7 @@ input[type="reset"],
     font: inherit;
     cursor: pointer;
     outline: inherit;
+    font-weight: 600;
 }
 
 button:hover,
