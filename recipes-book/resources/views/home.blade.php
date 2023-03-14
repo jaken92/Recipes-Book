@@ -25,9 +25,7 @@
         </div>
         <input type="hidden" name="_token" value="{{ csrf_token() }}" />
     </form>
-    <button class="show-checkboxes">Filter by ingredients</button>
-
-
+    <button class="show-checkboxes block">Filter by ingredients</button>
     <a href="home" class="reset-btn hidden" type="btn">Reset</a>
 
     @foreach ($recipes as $recipe)
