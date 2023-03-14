@@ -38,20 +38,13 @@ class DashboardController extends Controller
         return view('home')->with('recipes', $recipeList)->with('categories', $categories)->with('ingredients', $ingredients);
     }
 
-    public function filter(Request $request, Recipe $category)
+    public function filter(Request $request)
     {
         $chosenCategory = $request->only(['category']);
         $removedIngredients = $request->only(['remove-ingredient']);
 
-        $ingredients = DB::table('ingredients')
-            ->select('*')
-            ->orderBy('name')
-            ->get();
-
-        $categories = DB::table('categories')
-            ->select('*')
-            ->orderBy('name')
-            ->get();
+        $categories = Category::orderBy('name')->get();
+        $ingredients = Ingredient::orderBy('name')->get();
 
         if (isset($_POST['remove-ingredient']) && isset($_POST['category'])) {
 
@@ -71,20 +64,16 @@ class DashboardController extends Controller
                 ->whereNotIn('recipes.id', $unwantedIds)
                 ->get();
 
-
             return view('/home')->with('recipes', $filteredRecipes)->with('categories', $categories)->with('ingredients', $ingredients);
         }
 
-        if (isset($_POST['category'])) {
+        $filteredRecipes = DB::table('categories')
+            ->select('*')
+            ->orderBy('title')
+            ->where('categories.id', '=', $chosenCategory['category'])
+            ->join('recipes', 'recipes.category_id', '=', 'categories.id')
+            ->get();
 
-            $filteredRecipes = DB::table('categories')
-                ->select('*')
-                ->orderBy('title')
-                ->where('categories.id', '=', $chosenCategory['category'])
-                ->join('recipes', 'recipes.category_id', '=', 'categories.id')
-                ->get();
-
-            return view('/home')->with('recipes', $filteredRecipes)->with('categories', $categories)->with('ingredients', $ingredients);
-        }
+        return view('/home')->with('recipes', $filteredRecipes)->with('categories', $categories)->with('ingredients', $ingredients);
     }
 }
