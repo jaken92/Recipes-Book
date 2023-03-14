@@ -9,7 +9,7 @@
 <p>{{$recipe[0]->category_name}}</p>
 
 @foreach ($allIngredients as $singleIngredient)
-<p>{{$singleIngredient->name}}</p>
+<p>{{$singleIngredient->name}} {{$singleIngredient->amount}} {{$singleIngredient->unit}}</p>
 @endforeach
 
 <a href="/home">go back</a>

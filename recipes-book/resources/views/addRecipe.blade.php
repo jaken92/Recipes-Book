@@ -10,15 +10,15 @@ use App\Models\Category;
 
 <body>
     <form action="/addRecipeToDb" method="post">
-        <label for="title">Ange namn för ditt recept</label>
+        <label for="title">Input the name of your recipe</label>
         <input type="text" name="title">
-        <label for="category">Välj kategori för ditt recept</label>
+        <label for="category">Choose category for your recipe</label>
         <select name="category">
             @foreach ($categories as $category)
             <option value="{{$category->id}}">{{$category->name}}</option>
             @endforeach
         </select>
-        <label for="ingredients">Välj en ingredient för att lägga till i ditt recept</label>
+        <label for="ingredients">Choose an ingredient to add to your recipe</label>
         <div class="ingredient-list">
             <div>
                 <select id="chosenIngredient" name="ingredients[0]">
@@ -36,10 +36,9 @@ use App\Models\Category;
                     <option value="liter">liter</option>
                     <option value="dl">dl</option>
                     <option value="ml">ml</option>
-                    <option value="msk">msk</option>
-                    <option value="tsk">tsk</option>
-                    <option value="krm">krm</option>
-                    <option value="st">st</option>
+                    <option value="tbsp">tbsp</option>
+                    <option value="tsp">tsp</option>
+                    <option value="PCs">PCs</option>
                 </select>
             </div>
         </div>

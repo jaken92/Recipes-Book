@@ -27,7 +27,7 @@ class RecipeController extends Controller
             ->get();
 
         $recipeIngredients
-            = DB::table('recipe_ingredients')->select('ingredients.name')
+            = DB::table('recipe_ingredients')->select('*')
             ->join('ingredients', 'recipe_ingredients.ingredient_id', '=', 'ingredients.id')
             ->where('recipe_ingredients.recipe_id', '=', $recipe['id'])
             ->get();
