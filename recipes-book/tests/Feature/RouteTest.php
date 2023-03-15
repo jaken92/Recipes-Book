@@ -2,8 +2,10 @@
 
 namespace Tests\Feature;
 
+use App\Models\Category;
 use App\Models\Ingredient;
 use App\Models\Recipe;
+use App\Models\Recipe_ingredient;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
 use Tests\TestCase;
@@ -157,7 +159,7 @@ class RouteTest extends TestCase
 
         $response->assertStatus(200);
     }
-    /* public function test_recipe_page(): void
+    public function test_recipe_page(): void
     {
         $user = new User();
         $user->name = 'Rune';
@@ -165,19 +167,55 @@ class RouteTest extends TestCase
         $user->password = Hash::make('123');
         $user->save();
 
-        $recipe = new Recipe();
-        $recipe->title = 'tomat soppa';
-        $recipe->category = 'category';
-        $recipe->ingredients = ['tomat', 'potatis'];
-        $recipe->amount = ['4', '8'];
-        $recipe->unit = ['ml', 'hg'];
-        $recipe->instructions = 'fbfbxbfxbfbfd';
+        $category = new Category();
+        $category->name = 'soppa';
+        $category->save();
 
-        $response = $this->actingAs($user)->get('home');
+        $ingredient1 = new Ingredient();
+        $ingredient1->name = "tomat";
+        $ingredient1->save();
+
+        $ingredient2 = new Ingredient();
+        $ingredient2->name = "potatis";
+        $ingredient2->save();
+
+        $ingredient3 = new Ingredient();
+        $ingredient3->name = "ägg";
+        $ingredient3->save();
+
+        $recipe = new Recipe();
+        $recipe->user_id = 1;
+        $recipe->title = 'tomat soppa';
+        $recipe->category_id = 1;
+        $recipe->instructions = 'fbfbxbfxbfbfd';
+        $recipe->save();
+
+        $recipeIngredients1 = new Recipe_ingredient();
+        $recipeIngredients1->recipe_id = 1;
+        $recipeIngredients1->ingredient_id = 1;
+        $recipeIngredients1->amount = '4';
+        $recipeIngredients1->unit = 'ml';
+        $recipeIngredients1->save();
+
+        $recipeIngredients2 = new Recipe_ingredient();
+        $recipeIngredients2->recipe_id = 1;
+        $recipeIngredients2->ingredient_id = 2;
+        $recipeIngredients2->amount = '8';
+        $recipeIngredients2->unit = 'hg';
+        $recipeIngredients2->save();
+
+        // die(var_dump($recipe));
+
+        // $response = $this->get('home');
+        $response = $this
+            ->followingRedirects()
+            ->get("/recipe/$recipe->id");
+
+        // die(var_dump($recipeIngredients2));
         $response->assertSeeText('tomat soppa');
 
         $response->assertStatus(200);
-    } */
+    }
 
 
     // testing adding recipe
