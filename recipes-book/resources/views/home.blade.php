@@ -38,25 +38,28 @@
         @endforeach
         </ul>
     </section>
+    <div class="nav-section">
+        @auth
+        <div class="nav-btn-container">
+            <a href="addRecipe" class="login-button" type="btn">Go to add recipe</a>
 
-    @auth
-    <div class="nav-btn-container">
-        <a href="addRecipe" class="login-button" type="btn">Go to add recipe</a>
+            <form action="logout" method="post">
+        
+                <button type="submit">Logout</button>
+        
+                <input type="hidden" name="_token" value="{{ csrf_token() }}" />
+            </form>
+        </div>
 
-        <form action="logout" method="post">
-    
-            <button type="submit">Logout</button>
-    
-            <input type="hidden" name="_token" value="{{ csrf_token() }}" />
-        </form>
+        @endauth
+        @guest
+        <div class="logout-btn-container">
+            <a href="/" class="login-button" type="btn">Login</a>
+        </div>
+        @endguest
+
     </div>
 
-    @endauth
-    @guest
-    <div class="logout-btn-container">
-        <a href="/" class="login-button" type="btn">Login</a>
-    </div>
-    @endguest
     <script src="home.js">
     </script>
 </body>

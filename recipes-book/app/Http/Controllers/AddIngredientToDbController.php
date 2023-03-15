@@ -18,59 +18,6 @@ class AddIngredientToDbController extends Controller
     public function __invoke(Request $request)
     {
 
-        // DB::table('categories')
-        //     ->insert([
-        //         'name' => 'Soup',
-        //         "created_at" =>  date('Y-m-d H:i:s', strtotime("+1 hours")),
-        //         "updated_at" => date('Y-m-d H:i:s', strtotime("+1 hours")),
-        //     ]);
-
-        // DB::table('categories')
-        //     ->insert([
-        //         'name' => 'Dessert',
-        //         "created_at" =>  date('Y-m-d H:i:s', strtotime("+1 hours")),
-        //         "updated_at" => date('Y-m-d H:i:s', strtotime("+1 hours")),
-        //     ]);
-
-        // DB::table('categories')
-        //     ->insert([
-        //         'name' => 'Bread',
-        //         "created_at" =>  date('Y-m-d H:i:s', strtotime("+1 hours")),
-        //         "updated_at" => date('Y-m-d H:i:s', strtotime("+1 hours")),
-        //     ]);
-
-        // DB::table('categories')
-        //     ->insert([
-        //         'name' => 'Stew',
-        //         "created_at" =>  date('Y-m-d H:i:s', strtotime("+1 hours")),
-        //         "updated_at" => date('Y-m-d H:i:s', strtotime("+1 hours")),
-        //     ]);
-
-        // DB::table('categories')
-        //     ->insert([
-        //         'name' => 'Fried',
-        //         "created_at" =>  date('Y-m-d H:i:s', strtotime("+1 hours")),
-        //         "updated_at" => date('Y-m-d H:i:s', strtotime("+1 hours")),
-        //     ]);
-
-        // DB::table('categories')
-        //     ->insert([
-        //         'name' => 'Steak',
-        //         "created_at" =>  date('Y-m-d H:i:s', strtotime("+1 hours")),
-        //         "updated_at" => date('Y-m-d H:i:s', strtotime("+1 hours")),
-        //     ]);
-        // DB::table('categories')
-        //     ->insert([
-        //         'name' => 'Seafood',
-        //         "created_at" =>  date('Y-m-d H:i:s', strtotime("+1 hours")),
-        //         "updated_at" => date('Y-m-d H:i:s', strtotime("+1 hours")),
-        //     ]);
-        // DB::table('categories')
-        //     ->insert([
-        //         'name' => 'Pasta',
-        //         "created_at" =>  date('Y-m-d H:i:s', strtotime("+1 hours")),
-        //         "updated_at" => date('Y-m-d H:i:s', strtotime("+1 hours")),
-        //     ]);
         $this->validate($request, [
             'new-ingredient' => 'required|string|min:2'
         ]);

@@ -80,6 +80,8 @@ button:active {
     text-align: center;
     gap: 10px;
     margin-top: 10px;
+    width: 60%;
+    margin: auto;
 }
 .recipes-list {
     display: flex;
@@ -100,12 +102,20 @@ button:active {
     justify-content: center;
     margin-top: 30px;
 }
-
-.nav-btn-container {
+.nav-section {
+    width: 80;
     display: flex;
     justify-content: center;
-    gap: 1000px;
-    margin-top: 30px;
+}
+.nav-btn-container {
+    display: flex;
+    justify-content: space-between;
+    position: absolute;
+    bottom: 40px;
+    width: 80%;
+    align-self: center;
+    margin-left: 20%;
+    margin-right: 20%;
 }
 .logout-btn-container {
     display: flex;
@@ -158,4 +168,41 @@ article {
     display: flex;
     flex-direction: column;
     align-items: center;
+}
+
+input {
+    height: 25px;
+    font-weight: 600;
+    font: inherit;
+    border-radius: 5px;
+    margin-top: 5px;
+}
+
+.login-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 100px;
+}
+
+.login-btn-container {
+    display: flex;
+    justify-content: center;
+}
+.login-btn-container button {
+    padding-left: 40px;
+    padding-right: 40px;
+    margin-top: 20px;
+}
+.alt-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin-top: 50px;
+}
+
+.login-container form {
+    border: 2px solid var(--orange);
+    border-radius: 5px;
+    padding: 20px;
 }
