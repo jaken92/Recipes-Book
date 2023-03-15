@@ -1,7 +1,4 @@
-
-# Recipes-Book
-
-School project with app with Laravel
+<img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExZjkxMzliNzViODg1ZTFiZDNhYzA2YzdiMTZhZDI0ZWViZjQ5MDFmNyZjdD1n/3o6Zt8HWzhklRk36xy/giphy.gif" width="100%"/>
 
 
 # Recipe Book

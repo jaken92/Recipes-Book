@@ -19,7 +19,6 @@ class RecipeController extends Controller
 
     public function show(Recipe $recipe)
     {
-
         $singleRecipe = DB::table('recipes')->select('recipes.title', 'categories.name as category_name', 'recipes.instructions', 'users.name as user_name')
             ->join('users', 'recipes.user_id', '=', 'users.id')
             ->join('categories', 'recipes.category_id', '=', 'categories.id')
