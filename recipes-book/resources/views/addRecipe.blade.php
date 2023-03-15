@@ -11,7 +11,7 @@ use App\Models\Category;
 <body>
     <div class="hero-container">
         <img class="hero" src="/images/hero.jpg" alt="">
-        <h1 class="hero-text">Recipes Book</h1>
+        <h1 class="hero-text">Recipe Book</h1>
     </div>
     <section class="create-recipe-section">
         <form action="/addRecipeToDb" method="post">

@@ -4,7 +4,7 @@
 <body>
     <div class="hero-container">
         <img class="hero" src="/images/hero.jpg" alt="">
-        <h1 class="hero-text">Recipes Book</h1>
+        <h1 class="hero-text">Recipe Book</h1>
     </div>
     <div class="register-user-wrapper">
         <form method="post" action="saveUser">
@@ -20,11 +20,12 @@
             <button type="submit">sumbit</button>
             <input type="hidden" name="_token" value="{{ csrf_token() }}" />
         </form>
+    
+        @if(\Session::has('success'))
+        <p>{!! \Session::get('success') !!}</p>
+        @endif
+        <a href="/" class="go-back-button" type="btn">Go back</a>
     </div>
-    @if(\Session::has('success'))
-    <p>{!! \Session::get('success') !!}</p>
-    @endif
-    <a href="/" class="go-back-button" type="btn">Go back</a>
 </body>
 
 

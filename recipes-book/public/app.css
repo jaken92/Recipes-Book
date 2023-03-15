@@ -246,11 +246,20 @@ textarea {
 }
 .register-user-wrapper {
     display: flex;
-    justify-content: center;
+    align-items: center;
+    flex-direction: column;
 }
 .register-user-wrapper form {
     display: flex;
     flex-direction: column;
-    width: 30%;
+    width: 60%;
     align-items: center;
+    margin: 50px 0 50px 0;
+    border: 2px solid var(--orange);
+    border-radius: 5px;
+    padding: 20px;
+}
+
+.register-user-wrapper form button {
+    margin-top: 10px;
 }

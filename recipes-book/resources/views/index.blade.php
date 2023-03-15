@@ -4,7 +4,7 @@
 <body>
     <div class="hero-container">
         <img class="hero" src="/images/hero.jpg" alt="">
-        <h1 class="hero-text">Recipes Book</h1>
+        <h1 class="hero-text">Recipe Book</h1>
     </div>
     <div class="login-container">
         <form action="/login" method="post">
