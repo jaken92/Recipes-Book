@@ -53,7 +53,9 @@
 
     @endauth
     @guest
-    <a href="/" class="login-button" type="btn">Login</a>
+    <div class="logout-btn-container">
+        <a href="/" class="login-button" type="btn">Login</a>
+    </div>
     @endguest
     <script src="home.js">
     </script>
