@@ -22,9 +22,9 @@ addIngredientBtn.addEventListener("click", function (event) {
     let unitLabel = document.createElement("label");
 
     let newChosenIngredientClone = chosenIngredientClone.cloneNode(true);
-    amountLabel.textContent = "Mängd";
+    amountLabel.textContent = "Amount";
     let newAmountClone = amountClone.cloneNode(true);
-    unitLabel.textContent = "Enhet";
+    unitLabel.textContent = "Unit";
     let newUnitClone = unitClone.cloneNode(true);
 
     const singleDeleteBtn = document.createElement("button");

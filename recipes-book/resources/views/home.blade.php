@@ -9,7 +9,7 @@
     </div>
     <div class="searchfield-container">
         <form action="home" method="post">
-            <label for="category">Välj kategori att filtrera</label>
+            <label for="category">Choose a category to filter</label>
             <select name="category">
                 @foreach ($categories as $category)
                 <option value="{{$category->id}}">{{$category->name}}</option>

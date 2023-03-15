@@ -15,6 +15,7 @@ use App\Models\Category;
     </div>
     <section class="create-recipe-section">
         <form action="/addRecipeToDb" method="post">
+            <h3>Create ingredient</h3>
             <label for="title">Input the name of your recipe</label>
             <input type="text" name="title">
             <label for="category">Choose category for your recipe</label>
@@ -31,9 +32,9 @@ use App\Models\Category;
                         <option id="{{$ingredient->id}}" name="ingredients">{{$ingredient->name}}</option>
                         @endforeach
                     </select>
-                    <label for="amount">Mängd</label>
+                    <label for="amount">Amount</label>
                     <input id="amount" type="text" name="amount[0]" required="required">
-                    <label for="unit">Enhet</label>
+                    <label for="unit">Unit</label>
                     <select id="unit" class="unit" name="unit[0]" data-unit="selected">
                         <option value="gram" data-unit="gram">gram</option>
                         <option value="hg" data-unit="hg">hg</option>
@@ -48,13 +49,13 @@ use App\Models\Category;
                 </div>
             </div>
     
-            <button class="addIngredientBtn">Lägg till ingredients</button>
+            <button class="addIngredientBtn">Add Ingredient</button>
             <div class="textfield-wrapper">
                 <div>
                     <label for="instructions"></label>
                     <textarea style="resize: none; margin-top:40px " name="instructions" id="" cols="68" rows="10"></textarea>
                 </div>
-                <button type="submit">Skapa recept</button>
+                <button type="submit">Create Recipe</button>
             </div>
             <input type="hidden" name="_token" value="{{ csrf_token() }}" />
         </form>
