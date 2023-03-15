@@ -68,21 +68,49 @@ button:active {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+    font-size: 56px;
 }
-
+.searchfield-container form > * {
+    margin: 5px;
+}
+.searchfield-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 10px;
+    margin-top: 10px;
+}
 .recipes-list {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: flex-start;
+    align-items: center;
     gap: 20px;
     list-style-type: none;
-    font-size: 30px;
+    font-size: 36px;
+}
+.recipes-list li a:hover {
+    color: var(--orange);
+    transition: 0.3s;
 }
 
 .recipes-section {
     display: flex;
     justify-content: center;
+    margin-top: 30px;
+}
+
+.nav-btn-container {
+    display: flex;
+    justify-content: center;
+    gap: 1000px;
+    margin-top: 30px;
+}
+.logout-btn-container {
+    display: flex;
+    justify-content: end;
+    margin-right: 250px;
 }
 
 select {
@@ -109,10 +137,12 @@ h3 {
 }
 h4 {
     font-size: 1.3rem;
+    text-align: center;
 }
+
 .recipe-ingredients,
 .instructions {
-    margin: 15px 0 10px 0;
+    margin: 15px 30% 10px 30%;
 }
 
 .author {

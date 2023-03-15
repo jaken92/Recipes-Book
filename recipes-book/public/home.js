@@ -1,6 +1,6 @@
 const checkboxes = document.querySelector(".checkboxes");
 const btn = document.querySelector(".show-checkboxes");
-const resetBtn = document.querySelector(".reset-btn");
+const resetBtn = document.querySelector(".test");
 
 btn.addEventListener("click", () => {
     btn.classList.toggle("hidden");
