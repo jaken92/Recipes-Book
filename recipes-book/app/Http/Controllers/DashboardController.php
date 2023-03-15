@@ -54,6 +54,7 @@ class DashboardController extends Controller
                 ->get();
 
             //putting property recipe_id into array to enable usage of "whereNotIn" function.
+            $unwantedIds = array();
             foreach ($recipeIds as $recipeId) {
                 $unwantedIds[] = $recipeId->recipe_id;
             }
