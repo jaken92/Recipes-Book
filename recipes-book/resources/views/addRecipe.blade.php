@@ -15,7 +15,7 @@ use App\Models\Category;
     </div>
     <section class="create-recipe-section">
         <form action="/addRecipeToDb" method="post">
-            <h3>Create ingredient</h3>
+            <h3>Create Recipe</h3>
             <label for="title">Input the name of your recipe</label>
             <input type="text" name="title">
             <label for="category">Choose category for your recipe</label>
