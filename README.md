@@ -3,7 +3,7 @@
 
 # Recipe Book
 
-Recipe Book is a webapp made with Laravel. Our goal was to deepen our knowledge in laravel while developing a platform where users can save, share and browse cooking recipes. The project was developed by students Johanna Pihl & Petter Jakobsson of the Yrgo Webdevelop class of 2022.
+Recipe Book is a webapp made with Laravel. Our goal was to deepen our knowledge in laravel while developing a platform where users can save, share and browse cooking recipes. The focus of this project has been the functionality in laravel, the project is not finished in terms of responsivity and css. The project was developed by students Johanna Pihl & Petter Jakobsson of the Yrgo Webdevelop class of 2022.
 
 # Instructions
 
