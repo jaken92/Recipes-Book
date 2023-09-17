@@ -1,17 +1,14 @@
 <?php
 
 use App\Http\Controllers\AddIngredientToDbController;
-use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\DashboardController;
-use App\Http\Controllers\LoginController;
-use App\Http\Controllers\GuestController;
-use App\Http\Controllers\RecipeController;
 use App\Http\Controllers\AddRecipeController;
 use App\Http\Controllers\AddRecipeToDbController;
-use App\Http\Controllers\DbController;
+use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\LoginController;
 use App\Http\Controllers\LogoutController;
+use App\Http\Controllers\RecipeController;
 use App\Http\Controllers\RegisterUserController;
-
+use Illuminate\Support\Facades\Route;
 
 /*
 |--------------------------------------------------------------------------
@@ -24,7 +21,7 @@ use App\Http\Controllers\RegisterUserController;
 |
 */
 
-Route::view('/', 'index')->name('login')->middleware("guest");
+Route::view('/', 'index')->name('login')->middleware('guest');
 
 Route::get('home', DashboardController::class);
 

@@ -2,13 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Ingredients;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Facades\Redirect;
-
-use function PHPUnit\Framework\isNull;
 
 class AddIngredientToDbController extends Controller
 {
@@ -19,14 +15,14 @@ class AddIngredientToDbController extends Controller
     {
 
         $this->validate($request, [
-            'new-ingredient' => 'required|string|min:2'
+            'new-ingredient' => 'required|string|min:2',
         ]);
 
         $newIngredient = $request->only(['new-ingredient']);
 
         if (Auth::check()) {
-            $user = Auth::user();
-            $user = $request->user();
+            Auth::user();
+            $request->user();
 
             $ingredient = DB::table('ingredients')->where('name', $newIngredient['new-ingredient'])->first();
 
@@ -34,13 +30,13 @@ class AddIngredientToDbController extends Controller
                 DB::table('ingredients')
                     ->insert([
                         'name' => $newIngredient['new-ingredient'],
-                        "created_at" =>  date('Y-m-d H:i:s', strtotime("+1 hours")),
-                        "updated_at" => date('Y-m-d H:i:s', strtotime("+1 hours")),
+                        'created_at' => date('Y-m-d H:i:s', strtotime('+1 hours')),
+                        'updated_at' => date('Y-m-d H:i:s', strtotime('+1 hours')),
 
                     ]);
-            } else if ($ingredient->name == $newIngredient['new-ingredient']) {
+            } elseif ($ingredient->name == $newIngredient['new-ingredient']) {
 
-                return back()->withErrors("Ingredient already exists, check the dropdown menu.");
+                return back()->withErrors('Ingredient already exists, check the dropdown menu.');
             }
 
             return back()->with('success', 'Your ingredient was succesfully added!');

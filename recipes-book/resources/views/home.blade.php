@@ -1,6 +1,6 @@
 <!doctype html>
-<link rel="stylesheet" href="/home.css">
-<link rel="stylesheet" href="/app.css">
+<link rel="stylesheet" href="{{ asset('css/home.css') }}">
+<link rel="stylesheet" href="{{ asset('css/app.css') }}">
 
 <body>
     <div class="hero-container">
@@ -10,9 +10,9 @@
     <div class="searchfield-container">
         <form action="home" method="post">
             <label for="category">Choose a category to filter</label>
-            <select name="category">
+            <select id="category" name="category">
                 @foreach ($categories as $category)
-                <option value="{{$category->id}}">{{$category->name}}</option>
+                <option id="category" value="{{$category->id}}">{{$category->name}}</option>
                 @endforeach
             </select>
             <button type="submit">Submit</button>
@@ -20,8 +20,8 @@
             <div class="checkboxes hidden">
                 <p>Check off the ingredients you dont want to be included in your search:</p>
                 @foreach ($ingredients as $ingredient)
-                <input type="checkbox" name="remove-ingredient[]" value="{{$ingredient->id}}">
-                <label for="checkbox">{{$ingredient->name}}</label>
+                <input id="{{$ingredient->id}}" type="checkbox" name="remove-ingredient[]" value="{{$ingredient->id}}">
+                <label for="{{$ingredient->id}}">{{$ingredient->name}}</label>
                 @endforeach
             </div>
             <input type="hidden" name="_token" value="{{ csrf_token() }}" />
@@ -60,6 +60,6 @@
 
     </div>
 
-    <script src="home.js">
+    <script src="/JS/home.js">
     </script>
 </body>

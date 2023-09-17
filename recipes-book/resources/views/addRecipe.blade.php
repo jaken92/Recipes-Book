@@ -6,7 +6,7 @@ use App\Models\Category;
 
 ?>
 <!doctype html>
-<link rel="stylesheet" href="/app.css">
+<link rel="stylesheet" href="{{ asset('css/app.css') }}">
 
 <body>
     <div class="hero-container">
@@ -16,18 +16,18 @@ use App\Models\Category;
     <section class="create-recipe-section">
         <form action="/addRecipeToDb" method="post">
             <h3>Create Recipe</h3>
-            <label for="title">Input the name of your recipe</label>
-            <input type="text" name="title">
+            <label for="title" >Input the name of your recipe</label>
+            <input type="text" name="title" id="title">
             <label for="category">Choose category for your recipe</label>
-            <select name="category">
+            <select name="category" id="category">
                 @foreach ($categories as $category)
                 <option value="{{$category->id}}">{{$category->name}}</option>
                 @endforeach
             </select>
-            <label for="ingredients">Choose an ingredient to add to your recipe</label>
-            <div class="ingredient-list">
+            <label for="chosenIngredient">Choose an ingredient to add to your recipe</label>
+            <div class="ingredient-list" id="ingredients">
                 <div>
-                    <select id="chosenIngredient" name="ingredients[0]">
+                    <select id="chosenIngredient" name="ingredients[0]" id="ingredients">
                         @foreach ($ingredients as $ingredient)
                         <option id="{{$ingredient->id}}" name="ingredients">{{$ingredient->name}}</option>
                         @endforeach
@@ -53,7 +53,7 @@ use App\Models\Category;
             <div class="textfield-wrapper">
                 <div>
                     <label for="instructions"></label>
-                    <textarea style="resize: none; margin-top:40px " name="instructions" id="" cols="68" rows="10"></textarea>
+                    <textarea style="resize: none; margin-top:40px " name="instructions" id="instructions" cols="68" rows="10"></textarea>
                 </div>
                 <button type="submit">Create Recipe</button>
             </div>
@@ -63,7 +63,7 @@ use App\Models\Category;
         <form method="post" action="/addIngredientToDb">
             <h3>Create ingredient</h3>
             <label for="new-ingredient">Ingredient name</label>
-            <input type="text" name="new-ingredient">
+            <input type="text" name="new-ingredient" id="new-ingredient">
             <button type="submit">Create Ingredient</button>
             <input type="hidden" name="_token" value="{{ csrf_token() }}" />
         </form>
@@ -74,7 +74,7 @@ use App\Models\Category;
 
     </section>
    
-    <script src="/addRecipe.js">
+    <script src="/JS/addRecipe.js">
     </script>
 </body>
 

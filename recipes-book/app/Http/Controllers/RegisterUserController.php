@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Support\Facades\Hash;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
-use App\Models\User;
+use Illuminate\Support\Facades\Hash;
 
 class RegisterUserController extends Controller
 {
@@ -18,7 +18,7 @@ class RegisterUserController extends Controller
         $this->validate($request, [
             'name' => 'required|string|min:2',
             'email' => 'required|string|min:2',
-            'password' => 'required|string|min:4'
+            'password' => 'required|string|min:4',
         ]);
 
         $name = $request->only(['name']);
@@ -36,15 +36,14 @@ class RegisterUserController extends Controller
                     'name' => $name['name'],
                     'email' => $email['email'],
                     'password' => $password,
-                    "created_at" =>  date('Y-m-d H:i:s', strtotime("+1 hours")),
-                    "updated_at" => date('Y-m-d H:i:s', strtotime("+1 hours")),
+                    'created_at' => date('Y-m-d H:i:s', strtotime('+1 hours')),
+                    'updated_at' => date('Y-m-d H:i:s', strtotime('+1 hours')),
                 ]
             );
 
             return redirect('register')->with('success', 'Your account was succesfully created!');
         }
 
-
-        return redirect('register')->withErrors("Could not register");
+        return redirect('register')->withErrors('Could not register');
     }
 }

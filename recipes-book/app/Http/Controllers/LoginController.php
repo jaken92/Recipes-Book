@@ -11,16 +11,16 @@ class LoginController extends Controller
     /**
      * Handle the incoming request.
      */
-
     public function logout(Request $request)
     {
         Auth::logout();
+
         return redirect('/');
     }
 
     public function __invoke(Request $request)
     {
-        $credentials = $request->only("email", "password");
+        $credentials = $request->only('email', 'password');
 
         if (Auth::attempt($credentials)) {
 
@@ -29,6 +29,6 @@ class LoginController extends Controller
             return Redirect::to('/home');
         }
 
-        return back()->withErrors("Woops! Please try to login again");
+        return back()->withErrors('Woops! Please try to login again');
     }
 }

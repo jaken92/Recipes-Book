@@ -6,18 +6,16 @@ use App\Models\Category;
 use App\Models\Ingredient;
 use App\Models\Recipe;
 use App\Models\Recipe_ingredient;
-use Illuminate\Foundation\Testing\RefreshDatabase;
-use Illuminate\Foundation\Testing\WithFaker;
-use Tests\TestCase;
 use App\Models\User;
+use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Support\Facades\Hash;
+use Tests\TestCase;
 
 class RouteTest extends TestCase
 {
     /**
      * A basic feature test example.
      */
-
     use RefreshDatabase;
 
     // testing login
@@ -34,12 +32,14 @@ class RouteTest extends TestCase
         $response->assertSeeText('Go to add recipe');
         $response->assertStatus(200);
     }
+
     public function test_view_that_does_not_exist(): void
     {
         $response = $this->get('dashboard');
 
         $response->assertStatus(404);
     }
+
     public function test_login_user(): void
     {
         $user = new User();
@@ -60,6 +60,7 @@ class RouteTest extends TestCase
         $response->assertSeeText('Go to add recipe');
         $response->assertStatus(200);
     }
+
     public function test_login_wrong_credentials(): void
     {
         $user = new User();
@@ -81,7 +82,6 @@ class RouteTest extends TestCase
         $response->assertStatus(200);
     }
 
-
     // testing logout
     public function test_logout_user(): void
     {
@@ -100,7 +100,6 @@ class RouteTest extends TestCase
         $response->assertStatus(200);
     }
 
-
     // testing register user
     public function test_view_register(): void
     {
@@ -108,6 +107,7 @@ class RouteTest extends TestCase
 
         $response->assertStatus(200);
     }
+
     public function test_register_user(): void
     {
         $response = $this
@@ -122,6 +122,7 @@ class RouteTest extends TestCase
 
         $response->assertStatus(200);
     }
+
     public function test_register_user_fails(): void
     {
         $response = $this
@@ -137,7 +138,6 @@ class RouteTest extends TestCase
         $response->assertStatus(200);
     }
 
-
     // testing home page
     public function test_view_home_page_as_guest(): void
     {
@@ -145,6 +145,7 @@ class RouteTest extends TestCase
         $response->assertSeeText('Login');
         $response->assertStatus(200);
     }
+
     public function test_view_home_page_as_user(): void
     {
         $user = new User();
@@ -159,6 +160,7 @@ class RouteTest extends TestCase
 
         $response->assertStatus(200);
     }
+
     public function test_recipe_page(): void
     {
         $user = new User();
@@ -172,15 +174,15 @@ class RouteTest extends TestCase
         $category->save();
 
         $ingredient1 = new Ingredient();
-        $ingredient1->name = "tomat";
+        $ingredient1->name = 'tomat';
         $ingredient1->save();
 
         $ingredient2 = new Ingredient();
-        $ingredient2->name = "potatis";
+        $ingredient2->name = 'potatis';
         $ingredient2->save();
 
         $ingredient3 = new Ingredient();
-        $ingredient3->name = "ägg";
+        $ingredient3->name = 'ägg';
         $ingredient3->save();
 
         $recipe = new Recipe();
@@ -217,7 +219,6 @@ class RouteTest extends TestCase
         $response->assertStatus(200);
     }
 
-
     // testing adding recipe
     public function test_view_add_recipe_as_user(): void
     {
@@ -232,6 +233,7 @@ class RouteTest extends TestCase
 
         $response->assertStatus(200);
     }
+
     public function test_view_add_recipe_as_guest(): void
     {
         $response = $this
@@ -240,6 +242,7 @@ class RouteTest extends TestCase
         $response->assertSeeText('Register');
         $response->assertStatus(200);
     }
+
     public function test_add_recipe_to_db(): void
     {
         $user = new User();
@@ -273,6 +276,7 @@ class RouteTest extends TestCase
 
         $response->assertStatus(200);
     }
+
     public function test_add_recipe_to_db_fails(): void
     {
         $user = new User();
@@ -306,7 +310,6 @@ class RouteTest extends TestCase
         $response->assertStatus(200);
     }
 
-
     // testing adding ingredient
     public function test_add_ingredient_to_db(): void
     {
@@ -328,6 +331,7 @@ class RouteTest extends TestCase
 
         $response->assertStatus(200);
     }
+
     public function test_add_ingredient_to_db_fails(): void
     {
         $user = new User();

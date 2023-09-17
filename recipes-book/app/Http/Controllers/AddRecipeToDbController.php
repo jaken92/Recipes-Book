@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Ingredients;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
@@ -14,7 +13,8 @@ class AddRecipeToDbController extends Controller
      */
     public function __invoke(Request $request)
     {
-        $newIngredient = $request->only(['new-ingredient']);
+
+        $request->only(['new-ingredient']);
 
         if (Auth::check()) {
             $user = Auth::user();
@@ -24,7 +24,7 @@ class AddRecipeToDbController extends Controller
                 'title' => 'required|string|min:2',
                 'instructions' => 'required|string|min:2',
                 'amount' => 'required|array',
-                'amount.*' => 'required|int'
+                'amount.*' => 'required|int',
             ]);
 
             $title = $request->only(['title']);
@@ -40,23 +40,24 @@ class AddRecipeToDbController extends Controller
                     'title' => $title['title'],
                     'category_id' => $category['category'],
                     'instructions' => $instructions['instructions'],
-                    "created_at" =>  date('Y-m-d H:i:s', strtotime("+1 hours")),
-                    "updated_at" => date('Y-m-d H:i:s', strtotime("+1 hours")),
+                    'created_at' => date('Y-m-d H:i:s', strtotime('+1 hours')),
+                    'updated_at' => date('Y-m-d H:i:s', strtotime('+1 hours')),
                 ]
             );
 
             for ($i = 0; $i < count($ingredients['ingredients']); $i++) {
 
-                $ingredientId = DB::table('ingredients')->select('id')->where("name", "=", $ingredients['ingredients'][$i])->get();
+                $ingredientId = DB::table('ingredients')->select('id')->where('name', '=', $ingredients['ingredients'][$i])->get();
 
-                $recipeIngredients = DB::table('recipe_ingredients')->insert(
+
+                DB::table('recipe_ingredients')->insert(
                     [
                         'recipe_id' => $recipeId,
                         'ingredient_id' => $ingredientId[0]->id,
                         'amount' => $amount['amount'][$i],
                         'unit' => $unit['unit'][$i],
-                        "created_at" =>  date('Y-m-d H:i:s', strtotime("+1 hours")),
-                        "updated_at" => date('Y-m-d H:i:s', strtotime("+1 hours")),
+                        'created_at' => date('Y-m-d H:i:s', strtotime('+1 hours')),
+                        'updated_at' => date('Y-m-d H:i:s', strtotime('+1 hours')),
                     ]
                 );
             }
@@ -64,6 +65,6 @@ class AddRecipeToDbController extends Controller
             return back()->with('success', 'Your recipe was succesfully created!');
         }
 
-        return back()->withErrors("Your recipe was not created!");
+        return back()->withErrors('Your recipe was not created!');
     }
 }

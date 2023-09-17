@@ -2,20 +2,17 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Category;
+use App\Models\Ingredient;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
-use App\Models\Recipe;
-use App\Models\Category;
-use App\Models\Ingredient;
-use App\Models\Recipe_ingredient;
-use Illuminate\Support\Collection;
 
 class DashboardController extends Controller
 {
     /**
      * Handle the incoming request.
-     * @param \Illuminate\Http\Request $request
+     *
      * @return \Illuminate\Http\Response
      */
     public function __invoke(Request $request)
@@ -29,8 +26,8 @@ class DashboardController extends Controller
             ->get();
 
         if (Auth::check()) {
-            $user = Auth::user();
-            $user = $request->user();
+            Auth::user();
+            $request->user();
 
             return view('home')->with('recipes', $recipeList)->with('categories', $categories)->with('ingredients', $ingredients);
         }
@@ -54,7 +51,7 @@ class DashboardController extends Controller
                 ->get();
 
             //putting property recipe_id into array to enable usage of "whereNotIn" function.
-            $unwantedIds = array();
+            $unwantedIds = [];
             foreach ($recipeIds as $recipeId) {
                 $unwantedIds[] = $recipeId->recipe_id;
             }

@@ -1,5 +1,5 @@
 <!doctype html>
-<link rel="stylesheet" href="/app.css">
+<link rel="stylesheet" href="/{{ asset('css/app.css') }}">
 
 <body>
     <div class="hero-container">
